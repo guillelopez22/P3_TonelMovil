@@ -13,6 +13,9 @@ public class Relacion_Destinos {
     int distancia;
     Lugar punto1, punto2;
 
+    public Relacion_Destinos() {
+    }
+
     public Relacion_Destinos(int distancia, Lugar punto1, Lugar punto2) {
         this.distancia = distancia;
         this.punto1 = punto1;
@@ -42,5 +45,11 @@ public class Relacion_Destinos {
     public void setPunto2(Lugar punto2) {
         this.punto2 = punto2;
     }
+
+    @Override
+    public String toString() {
+        return ""+distancia;
+    }
+    
     
 }
