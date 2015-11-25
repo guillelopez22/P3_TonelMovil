@@ -15,6 +15,12 @@ import edu.uci.ics.jung.graph.util.EdgeType;
 import edu.uci.ics.jung.visualization.BasicVisualizationServer;
 import edu.uci.ics.jung.visualization.decorators.ToStringLabeller;
 import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JFrame;
 
 /**
@@ -62,7 +68,7 @@ public class MainWindow extends javax.swing.JFrame {
         Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8);
         relaciones.insert(d7, size);
         size++;
-        
+
     }
 
     /**
@@ -77,6 +83,15 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jd_agregar = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txt_nuevo_lugar = new javax.swing.JTextField();
+        txt_lugar_conectado = new javax.swing.JTextField();
+        txt_distancia = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -92,11 +107,81 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
+        jLabel1.setText("Agregar nuevo lugar");
+
+        jLabel2.setText("Nuevo Lugar:");
+
+        jLabel3.setText("Lugar que esta conectado:");
+
+        jLabel4.setText("Distancia entra ambos:");
+
+        jButton1.setText("Agregar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_agregarLayout = new javax.swing.GroupLayout(jd_agregar.getContentPane());
+        jd_agregar.getContentPane().setLayout(jd_agregarLayout);
+        jd_agregarLayout.setHorizontalGroup(
+            jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregarLayout.createSequentialGroup()
+                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_agregarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addGroup(jd_agregarLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jd_agregarLayout.createSequentialGroup()
+                                        .addGap(66, 66, 66)
+                                        .addComponent(jLabel1))
+                                    .addGroup(jd_agregarLayout.createSequentialGroup()
+                                        .addGap(86, 86, 86)
+                                        .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_distancia)
+                                            .addComponent(txt_lugar_conectado, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                            .addComponent(txt_nuevo_lugar)))))))
+                    .addGroup(jd_agregarLayout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(jButton1)))
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+        jd_agregarLayout.setVerticalGroup(
+            jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txt_nuevo_lugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txt_lugar_conectado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txt_distancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(146, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu3.setText("File");
 
         jMenuItem2.setText("Agregar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem2);
 
         jMenuItem3.setText("Modificar");
@@ -140,6 +225,20 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        try {
+            File fichero = null;
+            FileReader fr = null;
+            BufferedReader br = null;
+            fr = new FileReader("./mapa");
+            br = new BufferedReader(fr);
+            String linea;
+            while ((linea = br.readLine()) != ",") {
+               
+            }
+        } catch (Exception e) {
+            System.out.println("");
+        }
+
         for (int i = 0; i < size; i++) {
             grafo.addEdge(relaciones.get(i), relaciones.get(i).getPunto1(), relaciones.get(i).getPunto2(), EdgeType.UNDIRECTED);
         }
@@ -157,6 +256,46 @@ public class MainWindow extends javax.swing.JFrame {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        Lugar NuevoLugar = new Lugar(txt_nuevo_lugar.getText());
+        Lugar lugarconectado = new Lugar(txt_lugar_conectado.getText());
+        int distancia = Integer.parseInt(txt_distancia.getText());
+        Relacion_Destinos r = new Relacion_Destinos(distancia, NuevoLugar, lugarconectado);
+
+        relaciones.insert(r, size);
+        size++;
+        relaciones.Print_Lista();
+        File archivo;
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try {
+            archivo = new File("./mapa.txt");
+            fw = new FileWriter(archivo, true);
+            bw = new BufferedWriter(fw);
+            bw.write(distancia + ",");
+            bw.write(NuevoLugar + ",");
+            bw.write(lugarconectado + "|");
+            bw.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                bw.close();
+                fw.close();
+            } catch (IOException ex) {
+            }
+
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        this.jd_agregar.setModal(true);
+        this.jd_agregar.pack();
+        this.jd_agregar.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,6 +333,11 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -205,9 +349,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JDialog jd_agregar;
+    private javax.swing.JTextField txt_distancia;
+    private javax.swing.JTextField txt_lugar_conectado;
+    private javax.swing.JTextField txt_nuevo_lugar;
     // End of variables declaration//GEN-END:variables
     UndirectedSparseMultigraph grafo = new UndirectedSparseMultigraph<Lugar, Relacion_Destinos>();
-    Lista_Relacion relaciones = new Lista_Relacion();
+    public static Lista_Relacion relaciones = new Lista_Relacion();
     int size = 0;
-    
+
 }

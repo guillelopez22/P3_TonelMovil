@@ -16,10 +16,20 @@ public class Relacion_Destinos {
     public Relacion_Destinos() {
     }
 
+    public Relacion_Destinos(Lugar punto1, Lugar punto2) {
+        this.punto1 = punto1;
+        this.punto2 = punto2;
+    }
+
+    
     public Relacion_Destinos(int distancia, Lugar punto1, Lugar punto2) {
         this.distancia = distancia;
         this.punto1 = punto1;
         this.punto2 = punto2;
+    }
+
+    public Relacion_Destinos(String NuevoLugar, String lugarconectado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getDistancia() {
