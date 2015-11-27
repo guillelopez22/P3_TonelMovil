@@ -6,6 +6,8 @@
 package Windows;
 
 import Classes.Lista_Relacion;
+import Classes.Arbol;
+import Classes.Pila;
 import Classes.Lugar;
 import Classes.Relacion_Destinos;
 import edu.uci.ics.jung.algorithms.layout.CircleLayout;
@@ -38,28 +40,28 @@ public class MainWindow extends javax.swing.JFrame {
         Lugar p7 = new Lugar("Catacamas");
         Lugar p8 = new Lugar("Lempira");
         Lugar p9 = new Lugar("La Paz");
-        Relacion_Destinos d = new Relacion_Destinos(100, p, p1);
+        Relacion_Destinos d = new Relacion_Destinos(100, p, p1, false);
         relaciones.insert(d, size);
         size++;
-        Relacion_Destinos d1 = new Relacion_Destinos(500, p, p2);
+        Relacion_Destinos d1 = new Relacion_Destinos(500, p, p2, false);
         relaciones.insert(d1, size);
         size++;
-        Relacion_Destinos d2 = new Relacion_Destinos(110, p1, p2);
+        Relacion_Destinos d2 = new Relacion_Destinos(110, p1, p2, false);
         relaciones.insert(d2, size);
         size++;
-        Relacion_Destinos d3 = new Relacion_Destinos(200, p2, p3);
+        Relacion_Destinos d3 = new Relacion_Destinos(200, p2, p3, false);
         relaciones.insert(d3, size);
         size++;
-        Relacion_Destinos d4 = new Relacion_Destinos(1000, p4, p);
+        Relacion_Destinos d4 = new Relacion_Destinos(1000, p4, p, false);
         relaciones.insert(d4, size);
         size++;
-        Relacion_Destinos d5 = new Relacion_Destinos(210, p4, p3);
+        Relacion_Destinos d5 = new Relacion_Destinos(210, p4, p3, false);
         relaciones.insert(d5, size);
         size++;
-        Relacion_Destinos d6 = new Relacion_Destinos(50, p, p9);
+        Relacion_Destinos d6 = new Relacion_Destinos(50, p, p9, false);
         relaciones.insert(d6, size);
         size++;
-        Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8);
+        Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8, false);
         relaciones.insert(d7, size);
         size++;
         
@@ -81,7 +83,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        ViewMap = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -99,13 +101,13 @@ public class MainWindow extends javax.swing.JFrame {
 
         jMenu5.setText("View");
 
-        jMenuItem1.setText("Mapa..");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        ViewMap.setText("Mapa..");
+        ViewMap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                ViewMapActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem1);
+        jMenu5.add(ViewMap);
 
         jMenuBar2.add(jMenu5);
 
@@ -125,7 +127,7 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void ViewMapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewMapActionPerformed
         // TODO add your handling code here:
         for (int i = 0; i < size; i++) {
             grafo.addEdge(relaciones.get(i), relaciones.get(i).getPunto1(), relaciones.get(i).getPunto2(), EdgeType.UNDIRECTED);
@@ -143,7 +145,7 @@ public class MainWindow extends javax.swing.JFrame {
         frame.pack();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_ViewMapActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +183,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ViewMap;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -188,9 +191,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
     UndirectedSparseMultigraph grafo = new UndirectedSparseMultigraph<Lugar, Relacion_Destinos>();
+    UndirectedSparseMultigraph grafo2 = new UndirectedSparseMultigraph<Relacion_Destinos, Lugar>();
     Lista_Relacion relaciones = new Lista_Relacion();
     int size = 0;
     
