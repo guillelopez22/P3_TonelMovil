@@ -11,23 +11,28 @@ package Classes;
  */
 public class Nodo {
 
-    Relacion_Destinos value = new Relacion_Destinos();
+    Relacion_Destinos RelacionDestinos = new Relacion_Destinos();
     Nodo next;
+    int value;
+    Nodo padre;
+    Nodo izquierda;
+    Nodo derecha;
+    
 
-    public Nodo(Relacion_Destinos value) {
-        this.value = value;
+    public Nodo(Relacion_Destinos RelacionDestinos) {
+        this.RelacionDestinos = RelacionDestinos;
     }
 
     public Nodo() {
 
     }
 
-    public Relacion_Destinos getValue() {
-        return value;
+    public Relacion_Destinos getRelacionDestinos() {
+        return RelacionDestinos;
     }
 
-    public void setValue(Relacion_Destinos value) {
-        this.value = value;
+    public void setRelacionDestinos(Relacion_Destinos RelacionDestinos) {
+        this.RelacionDestinos = RelacionDestinos;
     }
 
     public Nodo getNext() {
@@ -37,4 +42,43 @@ public class Nodo {
     public void setNext(Nodo next) {
         this.next = next;
     }
+    
+        
+    public Nodo(int value){
+        this.value = value;
+    }
+    
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public Nodo getPadre() {
+        return padre;
+    }
+
+    public void setPadre(Nodo padre) {
+        this.padre = padre;
+    }
+
+    public Nodo getIzquierda() {
+        return izquierda;
+    }
+
+    public void setIzquierda(Nodo izquierda) {
+        this.izquierda = izquierda;
+    }
+
+    public Nodo getDerecha() {
+        return derecha;
+    }
+
+    public void setDerecha(Nodo derecha) {
+        this.derecha = derecha;
+    }
+    
+    
 }
