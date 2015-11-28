@@ -28,10 +28,6 @@ public class Relacion_Destinos {
         this.punto2 = punto2;
     }
 
-    public Relacion_Destinos(String NuevoLugar, String lugarconectado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public int getDistancia() {
         return distancia;
     }
