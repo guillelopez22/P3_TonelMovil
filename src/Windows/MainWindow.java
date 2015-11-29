@@ -107,7 +107,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jd_agregar = new javax.swing.JDialog();
+        jd_crear_ruta = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -121,6 +121,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txt_nom_lugar = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jd_eliminar_relacion = new javax.swing.JDialog();
+        cb_eliminar = new javax.swing.JComboBox();
+        jButton3 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -152,49 +157,49 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jd_agregarLayout = new javax.swing.GroupLayout(jd_agregar.getContentPane());
-        jd_agregar.getContentPane().setLayout(jd_agregarLayout);
-        jd_agregarLayout.setHorizontalGroup(
-            jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_agregarLayout.createSequentialGroup()
-                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_agregarLayout.createSequentialGroup()
+        javax.swing.GroupLayout jd_crear_rutaLayout = new javax.swing.GroupLayout(jd_crear_ruta.getContentPane());
+        jd_crear_ruta.getContentPane().setLayout(jd_crear_rutaLayout);
+        jd_crear_rutaLayout.setHorizontalGroup(
+            jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crear_rutaLayout.createSequentialGroup()
+                .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_crear_rutaLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
-                            .addGroup(jd_agregarLayout.createSequentialGroup()
+                            .addGroup(jd_crear_rutaLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jd_agregarLayout.createSequentialGroup()
+                                .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jd_crear_rutaLayout.createSequentialGroup()
                                         .addGap(66, 66, 66)
                                         .addComponent(jLabel1))
-                                    .addGroup(jd_agregarLayout.createSequentialGroup()
+                                    .addGroup(jd_crear_rutaLayout.createSequentialGroup()
                                         .addGap(86, 86, 86)
-                                        .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txt_distancia)
                                             .addComponent(cb_lugar1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(cb_lugar2, 0, 140, Short.MAX_VALUE)))))))
-                    .addGroup(jd_agregarLayout.createSequentialGroup()
+                    .addGroup(jd_crear_rutaLayout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addComponent(jButton1)))
                 .addContainerGap(99, Short.MAX_VALUE))
         );
-        jd_agregarLayout.setVerticalGroup(
-            jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_agregarLayout.createSequentialGroup()
+        jd_crear_rutaLayout.setVerticalGroup(
+            jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crear_rutaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cb_lugar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(cb_lugar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txt_distancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -251,6 +256,50 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
+        jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Eliminar Relacion");
+
+        jLabel8.setText("Elija Relacion a Eliminar");
+
+        javax.swing.GroupLayout jd_eliminar_relacionLayout = new javax.swing.GroupLayout(jd_eliminar_relacion.getContentPane());
+        jd_eliminar_relacion.getContentPane().setLayout(jd_eliminar_relacionLayout);
+        jd_eliminar_relacionLayout.setHorizontalGroup(
+            jd_eliminar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_eliminar_relacionLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(182, 182, 182))
+            .addGroup(jd_eliminar_relacionLayout.createSequentialGroup()
+                .addGroup(jd_eliminar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_eliminar_relacionLayout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(jButton3))
+                    .addGroup(jd_eliminar_relacionLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+        jd_eliminar_relacionLayout.setVerticalGroup(
+            jd_eliminar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminar_relacionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addGap(25, 25, 25)
+                .addGroup(jd_eliminar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu3.setText("File");
@@ -280,6 +329,11 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu3.add(jMenuItem3);
 
         jMenuItem4.setText("Eliminar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem4);
 
         jMenuBar2.add(jMenu3);
@@ -350,51 +404,73 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-
+        // TODO add your handling code here:        
         Lugar NuevoLugar = new Lugar(cb_lugar1.getSelectedItem().toString());
         Lugar lugarconectado = new Lugar(cb_lugar2.getSelectedItem().toString());
         int distancia = Integer.parseInt(txt_distancia.getText());
-        Relacion_Destinos z = new Relacion_Destinos(100, NuevoLugar, lugarconectado);
-        relaciones.insert(z, size);
-        size++;
-        relaciones.Print_Lista();
-        File archivo;
-        FileWriter fw = null;
-        BufferedWriter bw = null;
-        try {
-            archivo = new File("./mapa.txt");
-            fw = new FileWriter(archivo, true);
-            bw = new BufferedWriter(fw);
-            bw.write(distancia + ",");
-            bw.write(NuevoLugar + ",");
-            bw.write(lugarconectado + "|");
-            bw.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                bw.close();
-                fw.close();
-            } catch (IOException ex) {
+        Relacion_Destinos z = new Relacion_Destinos(distancia, NuevoLugar, lugarconectado);
+        boolean existe = false;
+        for (int i = 0; i <= size - 1; i++) {
+            if ((z.getPunto1().getNombre().contentEquals(relaciones.get(i).getPunto1().getNombre())) && (z.getPunto2().getNombre().contentEquals(relaciones.get(i).getPunto2().getNombre()))) {//.equals(relaciones.get(i).getPunto1())&&z.getPunto2().equals(relaciones.get(i).getPunto2()))
+                //||(z.getPunto2().equals(relaciones.get(i).getPunto1())&&z.getPunto1().equals(relaciones.get(i).getPunto2()))) {
+                //JOptionPane.showMessageDialog(this, "Ya existe esta relacion");
+
+                //relaciones.Print_Lista();
+                existe = true;
             }
+                //JOptionPane.showMessageDialog(this, "No existe, sera agregado");
 
         }
+        relaciones.Print_Lista();
+        //si z es igual a punto1 y x ed igual al punto2  || si z es igual a punto2 o x es igual a punto1 
+        if (existe) {
+            JOptionPane.showMessageDialog(this, "Ya Existe");
+        } else {
+            relaciones.insert(z, size);
+            size++;
+            relaciones.Print_Lista();
+            File archivo;
+            FileWriter fw = null;
+            BufferedWriter bw = null;
+            try {
+                archivo = new File("./mapa.txt");
+                fw = new FileWriter(archivo, true);
+                bw = new BufferedWriter(fw);
+                bw.write(distancia + ",");
+                bw.write(NuevoLugar + ",");
+                bw.write(lugarconectado + "|");
+                bw.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    bw.close();
+                    fw.close();
+                } catch (IOException ex) {
+                }
+
+            }
+        }
+
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        DefaultComboBoxModel modelo1 = new DefaultComboBoxModel();
         for (int i = 0; i <= size2 - 1; i++) {
             //System.out.println(lugares.get(i).getNombre());            
             modelo.addElement(lugares.get(i).toString());
+            modelo1.addElement(lugares.get(i).toString());
             //modelo.addElement(relaciones.get(i).getPunto1().toString());
             //modelo.addElement(relaciones.get(i).getPunto2().toString());
         }
         cb_lugar1.setModel(modelo);
-        this.jd_agregar.setModal(true);
-        this.jd_agregar.pack();
-        this.jd_agregar.setVisible(true);
+        cb_lugar2.setModel(modelo1);
+        this.jd_crear_ruta.setModal(true);
+        this.jd_crear_ruta.pack();
+        this.jd_crear_ruta.setVisible(true);
 
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -421,8 +497,8 @@ public class MainWindow extends javax.swing.JFrame {
         Lugar nom = new Lugar(txt_nom_lugar.getText());
         txt_nom_lugar.setText("");
         boolean existe = false;
-        for (int i = 0; i <= size-1; i++) {
-            for (int j = 0; j < size-1; j++) {
+        for (int i = 0; i <= size - 1; i++) {
+            for (int j = 0; j < size - 1; j++) {
                 if (nom.getNombre().equals(relaciones.get(i).getPunto1().getNombre())) {
                     existe = true;
                 }
@@ -432,18 +508,35 @@ public class MainWindow extends javax.swing.JFrame {
             }
 
         }
-        
-        
+
         txt_nom_lugar.setText("");
-        
+
         if (existe) {
             JOptionPane.showMessageDialog(this, "Ya Existe");
-        }else{
+        } else {
             lugares.insert(nom, size2);
             size2++;
             lugares.Print_Lista();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo3 = new DefaultComboBoxModel();
+        for (int i = 0; i <= size - 1; i++) {
+            //System.out.println(lugares.get(i).getNombre());            
+            modelo3.addElement(relaciones.get(i).getPunto1().getNombre().concat(" "+relaciones.get(i).getPunto2().getNombre()).concat(" "+relaciones.get(i).getDistancia()));           
+        }
+        cb_eliminar.setModel(modelo3);
+        jd_eliminar_relacion.setModal(true);
+        jd_eliminar_relacion.pack();
+        jd_eliminar_relacion.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -481,16 +574,20 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cb_eliminar;
     private javax.swing.JComboBox cb_lugar1;
     private javax.swing.JComboBox cb_lugar2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -503,8 +600,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JDialog jd_agregar;
     private javax.swing.JDialog jd_crear_lugar;
+    private javax.swing.JDialog jd_crear_ruta;
+    private javax.swing.JDialog jd_eliminar_relacion;
     private javax.swing.JTextField txt_distancia;
     private javax.swing.JTextField txt_nom_lugar;
     // End of variables declaration//GEN-END:variables
