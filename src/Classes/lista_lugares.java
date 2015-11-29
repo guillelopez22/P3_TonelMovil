@@ -10,84 +10,89 @@ package Classes;
  * @author jordi
  */
 public class lista_lugares{
-
-    Nodo_lista_lugares head;
-    public int tamano;
+Nodo_lista_lugares head;
+    private int size = 0;
 
     public lista_lugares() {
-        this.head = null;
-        this.tamano = 0;
+        head = new Nodo_lista_lugares();
     }
 
-    public Nodo_lista_lugares getHead() {
-        return head;
+    public void insert(Lugar value, int pos) {
+        Nodo_lista_lugares newNodo_lista_lugares = new Nodo_lista_lugares(value);
+        Nodo_lista_lugares newHead = head;
+        int cont = 0;
+        if (pos == 0) {
+            newNodo_lista_lugares.setNext(head);
+            this.setHead(newNodo_lista_lugares);
+        }
+        while (newHead.getNext() != null) {
+            newHead = newHead.getNext();
+            cont++;
+            if (cont == pos) {
+                break;
+            }
+        }
+        Nodo_lista_lugares n = newHead.getNext();
+        newHead.setNext(newNodo_lista_lugares);
+        newNodo_lista_lugares.setNext(n);
     }
 
     public void setHead(Nodo_lista_lugares head) {
         this.head = head;
     }
+    
 
-    public int getTamano() {
-        return tamano;
+    public int find(int num) {
+        return 0;
     }
 
-    public void setTamano(int tamano) {
-        this.tamano = tamano;
-    }
-
-    public void insert(Lugar lugar) {
-        Nodo_lista_lugares newNodo = new Nodo_lista_lugares(lugar);
+    public Lugar get(int pos) {
         Nodo_lista_lugares temp = head;
-        if (tamano == 0) {
-            this.setHead(newNodo);
-            tamano++;
-        } else {
-            while (temp.getNext() != null) {
-                temp = temp.getNext();
-            }
-            temp.setNext(newNodo);
-            tamano++;
+        Lugar valor = temp.getValue();
+        for (int i = 0; i < pos; i++) {
+            temp = temp.getNext();
+            valor = temp.getValue();
+
         }
+        return valor;
     }
 
     public void delete(int pos) {
         Nodo_lista_lugares temp = head;
-        Nodo_lista_lugares temp2 = null;
-        int cont = 0;
-        while (temp.getNext() != null) {
-            if (cont == pos - 1) {
-                temp2 = temp;
-            }
-
-            if (cont == pos) {
-                temp = temp.getNext();
-                break;
-            }
+        for (int i = 1; i < pos - 1; i++) {
             temp = temp.getNext();
-            cont++;
         }
+        Nodo_lista_lugares temp2 = temp.getNext();
+        temp.setNext(temp2.getNext());
+    }
 
-        temp2.setNext(temp);
+    public Lugar first() {
+        return head.getValue();
     }
 
     public void Print_Lista() {
         Nodo_lista_lugares temp = head;
+        int cont = 0;
         while (temp != null) {
-            System.out.println(temp.getLugar());
+            if (cont == 0) {
+                System.out.print("[H]");
+            }
+            if (temp.getNext() != null) {
+                System.out.print("[" + temp.getValue() + "] - ");
+                cont++;
+            } else {
+                System.out.print("[" + temp.getValue() + "]");
+                cont++;
+            }
             temp = temp.next;
         }
+        System.out.println("");
     }
 
-    public Nodo_lista_lugares get(int pos) {
-        Nodo_lista_lugares temp = head;
-        Lugar temp2=temp.getLugar();
-        for (int i = 0; i < pos; i++) {
-            temp = temp.getNext();
-            temp2=temp.getLugar();
-        }
-        return temp;
+    public void setSize(int size) {
+        this.size = size;
     }
-
-    
-
+    public int getSize(){
+        return size;
+    }
 }

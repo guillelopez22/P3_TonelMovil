@@ -11,17 +11,24 @@ package Classes;
  */
 public class Nodo_lista_lugares {
     
+    Lugar value = new Lugar();
     Nodo_lista_lugares next;
-    Lugar lugar;
 
-    
-    public Nodo_lista_lugares(Lugar lugar) {
-        this.next=null;
-        this.lugar=lugar;        
+    public Nodo_lista_lugares(Lugar value) {
+        this.value = value;
     }
 
-   
-    
+    public Nodo_lista_lugares() {
+
+    }
+
+    public Lugar getValue() {
+        return value;
+    }
+
+    public void setValue(Lugar value) {
+        this.value = value;
+    }
 
     public Nodo_lista_lugares getNext() {
         return next;
@@ -29,14 +36,6 @@ public class Nodo_lista_lugares {
 
     public void setNext(Nodo_lista_lugares next) {
         this.next = next;
-    }
-
-    public Lugar getLugar() {
-        return lugar;
-    }
-
-    public void setLugar(Lugar lugar) {
-        this.lugar = lugar;
     }
     
     

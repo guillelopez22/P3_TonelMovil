@@ -24,6 +24,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,19 +47,27 @@ public class MainWindow extends javax.swing.JFrame {
         Lugar p7 = new Lugar("Catacamas");
         Lugar p8 = new Lugar("Lempira");
         Lugar p9 = new Lugar("La Paz");
-        lugares.insert(p);
-        lugares.insert(p1);
-        lugares.insert(p2);
-        lugares.insert(p3);
-        lugares.insert(p4);
-        lugares.insert(p5);
-        lugares.insert(p6);
-        lugares.insert(p7);
-        lugares.insert(p8);
-        lugares.insert(p9);
-        
-        
-        
+        lugares.insert(p, size2);
+        size2++;
+        lugares.insert(p1, size2);
+        size2++;
+        lugares.insert(p2, size2);
+        size2++;
+        lugares.insert(p3, size2);
+        size2++;
+        lugares.insert(p4, size2);
+        size2++;
+        lugares.insert(p5, size2);
+        size2++;
+        lugares.insert(p6, size2);
+        size2++;
+        lugares.insert(p7, size2);
+        size2++;
+        lugares.insert(p8, size2);
+        size2++;
+        lugares.insert(p9, size2);
+        size2++;
+
         Relacion_Destinos d = new Relacion_Destinos(100, p, p1);
         relaciones.insert(d, size);
         size++;
@@ -201,6 +210,11 @@ public class MainWindow extends javax.swing.JFrame {
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -370,37 +384,24 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_lugar1.getModel();
-        for (int i = 0; i <= lugares.getTamano(); i++) {
-            modelo.addElement(lugares.get(i).getLugar().toString());
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for (int i = 0; i <= size2 - 1; i++) {
+            //System.out.println(lugares.get(i).getNombre());            
+            modelo.addElement(lugares.get(i).toString());
             //modelo.addElement(relaciones.get(i).getPunto1().toString());
             //modelo.addElement(relaciones.get(i).getPunto2().toString());
         }
+        cb_lugar1.setModel(modelo);
         this.jd_agregar.setModal(true);
         this.jd_agregar.pack();
         this.jd_agregar.setVisible(true);
 
-        
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        Lugar nom = new Lugar(txt_nom_lugar.getText());
-        
-        for (int i = 0; i <= relaciones.getSize(); i++) {
-            if (nom.getNombre().contentEquals(relaciones.get(i).getPunto1().toString())) {
-                System.out.println("No lo puede agregar");
-                
-            } else if (nom.getNombre().contentEquals(relaciones.get(i).getPunto2().toString())) {
-                System.out.println("No lo puede agregar");
-               
-            } else {
-                lugares.insert(nom);
-                System.out.println("Agregado");
-            }
-        }
-        txt_nom_lugar.setText("");
-        lugares.Print_Lista();
+
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
@@ -414,6 +415,35 @@ public class MainWindow extends javax.swing.JFrame {
         jd_crear_lugar.pack();
         jd_crear_lugar.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Lugar nom = new Lugar(txt_nom_lugar.getText());
+        txt_nom_lugar.setText("");
+        boolean existe = false;
+        for (int i = 0; i <= size-1; i++) {
+            for (int j = 0; j < size-1; j++) {
+                if (nom.getNombre().equals(relaciones.get(i).getPunto1().getNombre())) {
+                    existe = true;
+                }
+                if (nom.getNombre().equals(relaciones.get(j).getPunto2().getNombre())) {
+                    existe = true;
+                }
+            }
+
+        }
+        
+        
+        txt_nom_lugar.setText("");
+        
+        if (existe) {
+            JOptionPane.showMessageDialog(this, "Ya Existe");
+        }else{
+            lugares.insert(nom, size2);
+            size2++;
+            lugares.Print_Lista();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -482,5 +512,6 @@ public class MainWindow extends javax.swing.JFrame {
     public static Lista_Relacion relaciones = new Lista_Relacion();
     public static lista_lugares lugares = new lista_lugares();
     int size = 0;
+    int size2 = 0;
 
 }
