@@ -46,7 +46,13 @@ public class MainWindow extends javax.swing.JFrame {
     
     public MainWindow() {
         initComponents();
+<<<<<<< HEAD
         System.out.println(ContadorNodos);
+=======
+
+        System.out.println(ContadorNodos);
+
+>>>>>>> 441059ac1c051959e9b980e40e487d9246784b0a
         Scanner sc = null;
         File archivo = null;
         try {
@@ -137,6 +143,10 @@ public class MainWindow extends javax.swing.JFrame {
 //        Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8);
 //        relaciones.insert(d7, size);
 //        size++;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 441059ac1c051959e9b980e40e487d9246784b0a
         Lugar p = new Lugar("Tegucigalpa");
         p.setID(ContadorNodos);
         System.out.println(ContadorNodos);
@@ -206,7 +216,11 @@ public class MainWindow extends javax.swing.JFrame {
         System.out.println("");
         matrices.print2();
         
+<<<<<<< HEAD
     }
+=======
+ }
+>>>>>>> 441059ac1c051959e9b980e40e487d9246784b0a
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -562,10 +576,18 @@ public class MainWindow extends javax.swing.JFrame {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_ViewMapActionPerformed
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 441059ac1c051959e9b980e40e487d9246784b0a
     private void DijkstraMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DijkstraMenuItemMouseClicked
         // TODO add your handling code here:
         
     }//GEN-LAST:event_DijkstraMenuItemMouseClicked
+<<<<<<< HEAD
+=======
+
+>>>>>>> 441059ac1c051959e9b980e40e487d9246784b0a
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:        
         Lugar NuevoLugar = new Lugar(cb_lugar1.getSelectedItem().toString());
@@ -750,7 +772,10 @@ public class MainWindow extends javax.swing.JFrame {
         jd_modificar_relacion.pack();
         jd_modificar_relacion.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+<<<<<<< HEAD
 
+=======
+>>>>>>> 441059ac1c051959e9b980e40e487d9246784b0a
 
     /**
      * @param args the command line arguments
@@ -788,13 +813,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
-<<<<<<< HEAD
     private javax.swing.JMenuItem DijkstraMenuItem;
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
     private javax.swing.JComboBox cb_lugar1;
     private javax.swing.JComboBox cb_lugar2;
     private javax.swing.JComboBox cb_lugar2_eliminar;
@@ -811,13 +830,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-=======
-<<<<<<< HEAD
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
-=======
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
     private javax.swing.JMenuItem ViewMap;
->>>>>>> 196835541f937e229338a20821678683a96c1957
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -825,7 +838,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-<<<<<<< HEAD
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -841,10 +853,15 @@ public class MainWindow extends javax.swing.JFrame {
     UndirectedSparseMultigraph grafo = new UndirectedSparseMultigraph<Lugar, Relacion_Destinos>();
     public static Lista_Relacion relaciones = new Lista_Relacion();
     public static lista_lugares lugares = new lista_lugares();
+<<<<<<< HEAD
 =======
     // End of variables declaration//GEN-END:variables
     UndirectedSparseMultigraph grafo = new UndirectedSparseMultigraph<Lugar, Relacion_Destinos>();
     Lista_Relacion relaciones = new Lista_Relacion();
+=======
+    
+
+>>>>>>> 441059ac1c051959e9b980e40e487d9246784b0a
     int size = 0;
     int size2 = 0;
 
