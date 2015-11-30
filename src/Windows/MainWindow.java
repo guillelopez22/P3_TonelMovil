@@ -22,6 +22,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -37,62 +39,96 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
-        Lugar p = new Lugar("Tegucigalpa");
-        Lugar p1 = new Lugar("Juticalpa");
-        Lugar p2 = new Lugar("Yoro");
-        Lugar p3 = new Lugar("La Ceiba");
-        Lugar p4 = new Lugar("Tela");
-        Lugar p5 = new Lugar("Valle");
-        Lugar p6 = new Lugar("Choluteca");
-        Lugar p7 = new Lugar("Catacamas");
-        Lugar p8 = new Lugar("Lempira");
-        Lugar p9 = new Lugar("La Paz");
-        lugares.insert(p, size2);
-        size2++;
-        lugares.insert(p1, size2);
-        size2++;
-        lugares.insert(p2, size2);
-        size2++;
-        lugares.insert(p3, size2);
-        size2++;
-        lugares.insert(p4, size2);
-        size2++;
-        lugares.insert(p5, size2);
-        size2++;
-        lugares.insert(p6, size2);
-        size2++;
-        lugares.insert(p7, size2);
-        size2++;
-        lugares.insert(p8, size2);
-        size2++;
-        lugares.insert(p9, size2);
-        size2++;
+        Scanner sc = null;
+        File archivo = null;
+        try {
+            archivo = new File("./mapa.txt");
+            sc = new Scanner(archivo);
+            sc.useDelimiter(",");
+            while (sc.hasNext()) {
+                int distancia = sc.nextInt();
+                Lugar lugar1 = new Lugar(sc.next());
+                Lugar lugar2 = new Lugar(sc.next());
+                Relacion_Destinos m = new Relacion_Destinos(distancia, lugar1, lugar2);
+                relaciones.insert(m, size);
+                size++;
+            }
+        } catch (Exception e) {
+        } finally {
+            sc.close();
+        }
+        relaciones.Print_Lista();
+        Scanner sc1 = null;
+        File archivo2 = null;
+        try {
+            archivo2 = new File("./lugares.txt");
+            sc = new Scanner(archivo2);
+            sc.useDelimiter(",");
+            while (sc.hasNext()) {
+                Lugar lugar1 = new Lugar(sc.next());
+                lugares.insert(lugar1, size2);
+                size2++;
+            }
+        } catch (Exception e) {
+        } finally {
+            sc.close();
+        }
+        lugares.Print_Lista();
+//        Lugar p = new Lugar("Tegucigalpa");
+//        Lugar p1 = new Lugar("Juticalpa");
+//        Lugar p2 = new Lugar("Yoro");
+//        Lugar p3 = new Lugar("La Ceiba");
+//        Lugar p4 = new Lugar("Tela");
+//        Lugar p5 = new Lugar("Valle");
+//        Lugar p6 = new Lugar("Choluteca");
+//        Lugar p7 = new Lugar("Catacamas");
+//        Lugar p8 = new Lugar("Lempira");
+//        Lugar p9 = new Lugar("La Paz");
+//        lugares.insert(p, size2);
+//        size2++;
+//        lugares.insert(p1, size2);
+//        size2++;
+//        lugares.insert(p2, size2);
+//        size2++;
+//        lugares.insert(p3, size2);
+//        size2++;
+//        lugares.insert(p4, size2);
+//        size2++;
+//        lugares.insert(p5, size2);
+//        size2++;
+//        lugares.insert(p6, size2);
+//        size2++;
+//        lugares.insert(p7, size2);
+//        size2++;
+//        lugares.insert(p8, size2);
+//        size2++;
+//        lugares.insert(p9, size2);
+//        size2++;
 
-        Relacion_Destinos d = new Relacion_Destinos(100, p, p1);
-        relaciones.insert(d, size);
-        size++;
-        Relacion_Destinos d1 = new Relacion_Destinos(500, p, p2);
-        relaciones.insert(d1, size);
-        size++;
-        Relacion_Destinos d2 = new Relacion_Destinos(110, p1, p2);
-        relaciones.insert(d2, size);
-        size++;
-        Relacion_Destinos d3 = new Relacion_Destinos(200, p2, p3);
-        relaciones.insert(d3, size);
-        size++;
-        Relacion_Destinos d4 = new Relacion_Destinos(1000, p4, p);
-        relaciones.insert(d4, size);
-        size++;
-        Relacion_Destinos d5 = new Relacion_Destinos(210, p4, p3);
-        relaciones.insert(d5, size);
-        size++;
-        Relacion_Destinos d6 = new Relacion_Destinos(50, p, p9);
-        relaciones.insert(d6, size);
-        size++;
-        Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8);
-        relaciones.insert(d7, size);
-        size++;
-
+//        Relacion_Destinos d = new Relacion_Destinos(100, p, p1);
+//        relaciones.insert(d, size);
+//        size++;
+//        Relacion_Destinos d1 = new Relacion_Destinos(500, p, p2);
+//        relaciones.insert(d1, size);
+//        size++;
+//        Relacion_Destinos d2 = new Relacion_Destinos(110, p1, p2);
+//        relaciones.insert(d2, size);
+//        size++;
+//        Relacion_Destinos d3 = new Relacion_Destinos(200, p2, p3);
+//        relaciones.insert(d3, size);
+//        size++;
+//        Relacion_Destinos d4 = new Relacion_Destinos(1000, p4, p);
+//        relaciones.insert(d4, size);
+//        size++;
+//        Relacion_Destinos d5 = new Relacion_Destinos(210, p4, p3);
+//        relaciones.insert(d5, size);
+//        size++;
+//        Relacion_Destinos d6 = new Relacion_Destinos(50, p, p9);
+//        relaciones.insert(d6, size);
+//        size++;
+//        Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8);
+//        relaciones.insert(d7, size);
+//        size++;
     }
 
     /**
@@ -122,17 +158,19 @@ public class MainWindow extends javax.swing.JFrame {
         txt_nom_lugar = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jd_eliminar_relacion = new javax.swing.JDialog();
-        cb_eliminar = new javax.swing.JComboBox();
         jButton3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        cb_lugar_eliminar = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        cb_lugar2_eliminar = new javax.swing.JComboBox();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -265,7 +303,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel7.setText("Eliminar Relacion");
 
-        jLabel8.setText("Elija Relacion a Eliminar");
+        jLabel9.setText("Nuevo Lugar:");
+
+        jLabel10.setText("Lugar que esta conectado:");
 
         javax.swing.GroupLayout jd_eliminar_relacionLayout = new javax.swing.GroupLayout(jd_eliminar_relacion.getContentPane());
         jd_eliminar_relacion.getContentPane().setLayout(jd_eliminar_relacionLayout);
@@ -276,28 +316,38 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(182, 182, 182))
             .addGroup(jd_eliminar_relacionLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jd_eliminar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
                     .addGroup(jd_eliminar_relacionLayout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jButton3))
-                    .addGroup(jd_eliminar_relacionLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                        .addComponent(jLabel9)
+                        .addGap(86, 86, 86)
+                        .addGroup(jd_eliminar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cb_lugar_eliminar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cb_lugar2_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jd_eliminar_relacionLayout.setVerticalGroup(
             jd_eliminar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_eliminar_relacionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addGap(25, 25, 25)
-                .addGroup(jd_eliminar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGroup(jd_eliminar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_eliminar_relacionLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_eliminar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(cb_lugar_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addGroup(jd_eliminar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(cb_lugar2_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jd_eliminar_relacionLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton3)))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -325,8 +375,12 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem2);
 
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+
         jMenuItem3.setText("Modificar");
-        jMenu3.add(jMenuItem3);
+        jMenu4.add(jMenuItem3);
 
         jMenuItem4.setText("Eliminar");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -334,11 +388,8 @@ public class MainWindow extends javax.swing.JFrame {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem4);
+        jMenu4.add(jMenuItem4);
 
-        jMenuBar2.add(jMenu3);
-
-        jMenu4.setText("Edit");
         jMenuBar2.add(jMenu4);
 
         jMenu5.setText("View");
@@ -371,18 +422,23 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        Scanner sc = null;
+        File archivo;
         try {
-            File fichero = null;
-            FileReader fr = null;
-            BufferedReader br = null;
-            fr = new FileReader("./mapa");
-            br = new BufferedReader(fr);
-            String linea;
-            while ((linea = br.readLine()) != ",") {
-
+            archivo = new File("./mapa.txt");
+            sc = new Scanner(archivo);
+            sc.useDelimiter(";");
+            while (sc.hasNext()) {
+                int distancia = sc.nextInt();
+                Lugar lugar1 = new Lugar(sc.next());
+                Lugar lugar2 = new Lugar(sc.next());
+                Relacion_Destinos m = new Relacion_Destinos(distancia, lugar1, lugar2);
+                relaciones.insert(m, size);
+                size++;
             }
         } catch (Exception e) {
-            System.out.println("");
+        } finally {
+            sc.close();
         }
 
         for (int i = 0; i < size; i++) {
@@ -411,21 +467,19 @@ public class MainWindow extends javax.swing.JFrame {
         Relacion_Destinos z = new Relacion_Destinos(distancia, NuevoLugar, lugarconectado);
         boolean existe = false;
         for (int i = 0; i <= size - 1; i++) {
-            if ((z.getPunto1().getNombre().contentEquals(relaciones.get(i).getPunto1().getNombre())) && (z.getPunto2().getNombre().contentEquals(relaciones.get(i).getPunto2().getNombre()))) {//.equals(relaciones.get(i).getPunto1())&&z.getPunto2().equals(relaciones.get(i).getPunto2()))
-                //||(z.getPunto2().equals(relaciones.get(i).getPunto1())&&z.getPunto1().equals(relaciones.get(i).getPunto2()))) {
-                //JOptionPane.showMessageDialog(this, "Ya existe esta relacion");
-
-                //relaciones.Print_Lista();
+            if (NuevoLugar.getNombre().contentEquals(lugarconectado.getNombre())) {
+                existe = true;
+            }else if ((z.getPunto1().getNombre().contentEquals(relaciones.get(i).getPunto1().getNombre())) && (z.getPunto2().getNombre().contentEquals(relaciones.get(i).getPunto2().getNombre()))) {//.equals(relaciones.get(i).getPunto1())&&z.getPunto2().equals(relaciones.get(i).getPunto2()))
                 existe = true;
             }
-                //JOptionPane.showMessageDialog(this, "No existe, sera agregado");
-
+            
         }
         relaciones.Print_Lista();
-        //si z es igual a punto1 y x ed igual al punto2  || si z es igual a punto2 o x es igual a punto1 
         if (existe) {
-            JOptionPane.showMessageDialog(this, "Ya Existe");
+            JOptionPane.showMessageDialog(this, "Ya Existe o mismo destino entre ambos");
+            txt_distancia.setText("");
         } else {
+            JOptionPane.showMessageDialog(this, "No existe, sera agregado");
             relaciones.insert(z, size);
             size++;
             relaciones.Print_Lista();
@@ -438,7 +492,7 @@ public class MainWindow extends javax.swing.JFrame {
                 bw = new BufferedWriter(fw);
                 bw.write(distancia + ",");
                 bw.write(NuevoLugar + ",");
-                bw.write(lugarconectado + "|");
+                bw.write(lugarconectado + ",");
                 bw.flush();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -450,6 +504,7 @@ public class MainWindow extends javax.swing.JFrame {
                 }
 
             }
+            txt_distancia.setText("");
         }
 
 
@@ -506,28 +561,55 @@ public class MainWindow extends javax.swing.JFrame {
                     existe = true;
                 }
             }
-
         }
-
+        for (int i = 0; i <= size2-1; i++) {
+            if(nom.getNombre().contentEquals(lugares.get(i).getNombre())){
+                existe=true;
+            }
+        }
         txt_nom_lugar.setText("");
-
         if (existe) {
             JOptionPane.showMessageDialog(this, "Ya Existe");
         } else {
             lugares.insert(nom, size2);
             size2++;
+            File archivo;
+            FileWriter fw = null;
+            BufferedWriter bw = null;
+            try {
+                archivo = new File("./lugares.txt");
+                fw = new FileWriter(archivo, true);
+                bw = new BufferedWriter(fw);
+                bw.write(nom + ",");
+
+                bw.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    bw.close();
+                    fw.close();
+                } catch (IOException ex) {
+                }
+
+            }
+
             lugares.Print_Lista();
+
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
         DefaultComboBoxModel modelo3 = new DefaultComboBoxModel();
-        for (int i = 0; i <= size - 1; i++) {
+        DefaultComboBoxModel modelo4 = new DefaultComboBoxModel();
+        for (int i = 0; i <= size2 - 1; i++) {
             //System.out.println(lugares.get(i).getNombre());            
-            modelo3.addElement(relaciones.get(i).getPunto1().getNombre().concat(" "+relaciones.get(i).getPunto2().getNombre()).concat(" "+relaciones.get(i).getDistancia()));           
+            modelo3.addElement(lugares.get(i));
+            modelo4.addElement(lugares.get(i));
         }
-        cb_eliminar.setModel(modelo3);
+        cb_lugar_eliminar.setModel(modelo3);
+        cb_lugar2_eliminar.setModel(modelo4);
         jd_eliminar_relacion.setModal(true);
         jd_eliminar_relacion.pack();
         jd_eliminar_relacion.setVisible(true);
@@ -535,7 +617,24 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
+        boolean existe = false;
+        Lugar NuevoLugar = new Lugar(cb_lugar_eliminar.getSelectedItem().toString());
+        Lugar lugarconectado = new Lugar(cb_lugar2_eliminar.getSelectedItem().toString());
+        int distancia = 0;
+        Relacion_Destinos z = new Relacion_Destinos(distancia, NuevoLugar, lugarconectado);
+
+        /*for (int i = 0; i <= size - 1; i++) {
+         if ((z.getPunto1().getNombre().contentEquals(relaciones.get(i).getPunto1().getNombre())) && (z.getPunto2().getNombre().contentEquals(relaciones.get(i).getPunto2().getNombre()))) {//.equals(relaciones.get(i).getPunto1())&&z.getPunto2().equals(relaciones.get(i).getPunto2()))
+         distancia=Integer.parseInt(relaciones.get(i).toString());
+                
+         }
+                
+
+         }*/
+        relaciones.Print_Lista();
+        relaciones.delete(0);
+        relaciones.Print_Lista();
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -574,20 +673,22 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cb_eliminar;
     private javax.swing.JComboBox cb_lugar1;
     private javax.swing.JComboBox cb_lugar2;
+    private javax.swing.JComboBox cb_lugar2_eliminar;
+    private javax.swing.JComboBox cb_lugar_eliminar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
