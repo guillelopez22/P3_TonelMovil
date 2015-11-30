@@ -9,3 +9,5 @@ Computadoras y sus especificaciones utlizadas para tomar los tiempos de ejecucio
 -Toshiba Satellite S50-B Intel(R)Core(TM)i7-4710HQ CPU @ 2.50GHz 12.0 GB RAM 64-bits Operating System.x64-based processor
 
 -Toshiba Satellite L505 Intel(R)Core(TM)2Duo CPU @ 1.60Hz 3.00GB Ram
+
+-Dell Intel(R)Core(TM)i5-2450M CPU @2.50GHz x 4 3.8 GB 

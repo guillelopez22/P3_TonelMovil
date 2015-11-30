@@ -5,13 +5,33 @@
  */
 package Classes;
 
+import Windows.MainWindow;
+import static Windows.MainWindow.ContadorNodos;
 /**
  *
  * @author Memo
  */
 public class Lugar {
     public String nombre;
+    boolean visitado;
+    public int ID;
 
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+        ContadorNodos++;
+    }
+    
+    public boolean isVisitado() {
+        return visitado;
+    }
+
+    public void setVisitado(boolean visitado) {
+        this.visitado = visitado;
+    }
     public Lugar() {
     }
 
