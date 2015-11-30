@@ -184,4 +184,9 @@ public class Arbol {
             InordenMax(data.getIzquierda());
         }
     }
+    
+    public void Dijkstra(){
+        
+    }
+    
 }

@@ -12,24 +12,14 @@ package Classes;
 public class Relacion_Destinos {
     int distancia;
     Lugar punto1, punto2;
-    boolean visitado;
-
-    public boolean isVisitado() {
-        return visitado;
-    }
-
-    public void setVisitado(boolean visitado) {
-        this.visitado = visitado;
-    }
 
     public Relacion_Destinos() {
     }
 
-    public Relacion_Destinos(int distancia, Lugar punto1, Lugar punto2, boolean visitado) {
+    public Relacion_Destinos(int distancia, Lugar punto1, Lugar punto2) {
         this.distancia = distancia;
         this.punto1 = punto1;
         this.punto2 = punto2;
-        this.visitado = visitado;
     }
 
     public int getDistancia() {
