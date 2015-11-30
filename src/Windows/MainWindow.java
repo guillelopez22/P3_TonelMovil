@@ -46,13 +46,7 @@ public class MainWindow extends javax.swing.JFrame {
     
     public MainWindow() {
         initComponents();
-<<<<<<< HEAD
-<<<<<<< HEAD
         System.out.println(ContadorNodos);
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
         Scanner sc = null;
         File archivo = null;
         try {
@@ -143,11 +137,6 @@ public class MainWindow extends javax.swing.JFrame {
 //        Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8);
 //        relaciones.insert(d7, size);
 //        size++;
-=======
-<<<<<<< HEAD
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
-=======
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
         Lugar p = new Lugar("Tegucigalpa");
         p.setID(ContadorNodos);
         System.out.println(ContadorNodos);
@@ -217,7 +206,6 @@ public class MainWindow extends javax.swing.JFrame {
         System.out.println("");
         matrices.print2();
         
->>>>>>> 196835541f937e229338a20821678683a96c1957
     }
 
     /**
@@ -574,15 +562,10 @@ public class MainWindow extends javax.swing.JFrame {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_ViewMapActionPerformed
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     private void DijkstraMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DijkstraMenuItemMouseClicked
         // TODO add your handling code here:
         
     }//GEN-LAST:event_DijkstraMenuItemMouseClicked
-=======
-=======
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:        
         Lugar NuevoLugar = new Lugar(cb_lugar1.getSelectedItem().toString());
@@ -767,10 +750,7 @@ public class MainWindow extends javax.swing.JFrame {
         jd_modificar_relacion.pack();
         jd_modificar_relacion.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
-<<<<<<< HEAD
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
-=======
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
+
 
     /**
      * @param args the command line arguments
@@ -857,7 +837,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JDialog jd_modificar_relacion;
     private javax.swing.JTextField txt_distancia;
     private javax.swing.JTextField txt_nom_lugar;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
     UndirectedSparseMultigraph grafo = new UndirectedSparseMultigraph<Lugar, Relacion_Destinos>();
     public static Lista_Relacion relaciones = new Lista_Relacion();
     public static lista_lugares lugares = new lista_lugares();
@@ -865,7 +845,6 @@ public class MainWindow extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     UndirectedSparseMultigraph grafo = new UndirectedSparseMultigraph<Lugar, Relacion_Destinos>();
     Lista_Relacion relaciones = new Lista_Relacion();
->>>>>>> 196835541f937e229338a20821678683a96c1957
     int size = 0;
     int size2 = 0;
 
