@@ -47,9 +47,12 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
 <<<<<<< HEAD
+<<<<<<< HEAD
         System.out.println(ContadorNodos);
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
         Scanner sc = null;
         File archivo = null;
         try {
@@ -140,6 +143,9 @@ public class MainWindow extends javax.swing.JFrame {
 //        Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8);
 //        relaciones.insert(d7, size);
 //        size++;
+=======
+<<<<<<< HEAD
+>>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
 =======
 >>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
         Lugar p = new Lugar("Tegucigalpa");
@@ -569,11 +575,14 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_ViewMapActionPerformed
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private void DijkstraMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DijkstraMenuItemMouseClicked
         // TODO add your handling code here:
         
     }//GEN-LAST:event_DijkstraMenuItemMouseClicked
 =======
+=======
+>>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:        
         Lugar NuevoLugar = new Lugar(cb_lugar1.getSelectedItem().toString());
@@ -758,6 +767,9 @@ public class MainWindow extends javax.swing.JFrame {
         jd_modificar_relacion.pack();
         jd_modificar_relacion.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+<<<<<<< HEAD
+>>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
+=======
 >>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
 
     /**
@@ -797,9 +809,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
 <<<<<<< HEAD
+<<<<<<< HEAD
     private javax.swing.JMenuItem DijkstraMenuItem;
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
     private javax.swing.JComboBox cb_lugar1;
     private javax.swing.JComboBox cb_lugar2;
     private javax.swing.JComboBox cb_lugar2_eliminar;
@@ -816,6 +831,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+=======
+<<<<<<< HEAD
+>>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
 =======
 >>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
     private javax.swing.JMenuItem ViewMap;
