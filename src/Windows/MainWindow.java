@@ -143,7 +143,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jd_crear_ruta = new javax.swing.JDialog();
+        jd_crear_relacion = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -164,6 +164,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         cb_lugar2_eliminar = new javax.swing.JComboBox();
+        jd_modificar_relacion = new javax.swing.JDialog();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -195,49 +196,49 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jd_crear_rutaLayout = new javax.swing.GroupLayout(jd_crear_ruta.getContentPane());
-        jd_crear_ruta.getContentPane().setLayout(jd_crear_rutaLayout);
-        jd_crear_rutaLayout.setHorizontalGroup(
-            jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_crear_rutaLayout.createSequentialGroup()
-                .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_crear_rutaLayout.createSequentialGroup()
+        javax.swing.GroupLayout jd_crear_relacionLayout = new javax.swing.GroupLayout(jd_crear_relacion.getContentPane());
+        jd_crear_relacion.getContentPane().setLayout(jd_crear_relacionLayout);
+        jd_crear_relacionLayout.setHorizontalGroup(
+            jd_crear_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crear_relacionLayout.createSequentialGroup()
+                .addGroup(jd_crear_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_crear_relacionLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_crear_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
-                            .addGroup(jd_crear_rutaLayout.createSequentialGroup()
+                            .addGroup(jd_crear_relacionLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jd_crear_rutaLayout.createSequentialGroup()
+                                .addGroup(jd_crear_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jd_crear_relacionLayout.createSequentialGroup()
                                         .addGap(66, 66, 66)
                                         .addComponent(jLabel1))
-                                    .addGroup(jd_crear_rutaLayout.createSequentialGroup()
+                                    .addGroup(jd_crear_relacionLayout.createSequentialGroup()
                                         .addGap(86, 86, 86)
-                                        .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jd_crear_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txt_distancia)
                                             .addComponent(cb_lugar1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(cb_lugar2, 0, 140, Short.MAX_VALUE)))))))
-                    .addGroup(jd_crear_rutaLayout.createSequentialGroup()
+                    .addGroup(jd_crear_relacionLayout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addComponent(jButton1)))
                 .addContainerGap(99, Short.MAX_VALUE))
         );
-        jd_crear_rutaLayout.setVerticalGroup(
-            jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_crear_rutaLayout.createSequentialGroup()
+        jd_crear_relacionLayout.setVerticalGroup(
+            jd_crear_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crear_relacionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_crear_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cb_lugar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_crear_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(cb_lugar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jd_crear_rutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_crear_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txt_distancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -350,6 +351,17 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout jd_modificar_relacionLayout = new javax.swing.GroupLayout(jd_modificar_relacion.getContentPane());
+        jd_modificar_relacion.getContentPane().setLayout(jd_modificar_relacionLayout);
+        jd_modificar_relacionLayout.setHorizontalGroup(
+            jd_modificar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_modificar_relacionLayout.setVerticalGroup(
+            jd_modificar_relacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu3.setText("File");
@@ -380,6 +392,11 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu4.setText("Edit");
 
         jMenuItem3.setText("Modificar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem3);
 
         jMenuItem4.setText("Eliminar");
@@ -523,9 +540,9 @@ public class MainWindow extends javax.swing.JFrame {
         }
         cb_lugar1.setModel(modelo);
         cb_lugar2.setModel(modelo1);
-        this.jd_crear_ruta.setModal(true);
-        this.jd_crear_ruta.pack();
-        this.jd_crear_ruta.setVisible(true);
+        this.jd_crear_relacion.setModal(true);
+        this.jd_crear_relacion.pack();
+        this.jd_crear_relacion.setVisible(true);
 
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -637,6 +654,13 @@ public class MainWindow extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        jd_modificar_relacion.setModal(true);
+        jd_modificar_relacion.pack();
+        jd_modificar_relacion.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -702,8 +726,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JDialog jd_crear_lugar;
-    private javax.swing.JDialog jd_crear_ruta;
+    private javax.swing.JDialog jd_crear_relacion;
     private javax.swing.JDialog jd_eliminar_relacion;
+    private javax.swing.JDialog jd_modificar_relacion;
     private javax.swing.JTextField txt_distancia;
     private javax.swing.JTextField txt_nom_lugar;
     // End of variables declaration//GEN-END:variables
