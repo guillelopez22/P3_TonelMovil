@@ -12,31 +12,34 @@ package Classes;
 public class Relacion_Destinos {
     int distancia;
     Lugar punto1, punto2;
-    boolean visitado;
-
-    public boolean isVisitado() {
-        return visitado;
-    }
-
-    public void setVisitado(boolean visitado) {
-        this.visitado = visitado;
-    }
 
     public Relacion_Destinos() {
     }
 
 <<<<<<< HEAD
+    public Relacion_Destinos(int distancia, Lugar punto1, Lugar punto2) {
+=======
+<<<<<<< HEAD
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+>>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
     
     public Relacion_Destinos(int distancia, Lugar punto1, Lugar punto2) {
 =======
     public Relacion_Destinos(int distancia, Lugar punto1, Lugar punto2, boolean visitado) {
 >>>>>>> 196835541f937e229338a20821678683a96c1957
+<<<<<<< HEAD
+>>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
+=======
+>>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
         this.distancia = distancia;
         this.punto1 = punto1;
         this.punto2 = punto2;
-        this.visitado = visitado;
     }
 
     public int getDistancia() {

@@ -2,6 +2,31 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <file>file:/home/isaac/Desktop/Trabajos/Estructura/proyectos2/Grafos/P3_TonelMovil/src/Classes/Lista_Relacion.java</file>
+            <file>file:/home/isaac/Desktop/Trabajos/Estructura/proyectos2/Grafos/P3_TonelMovil/src/Classes/Arbol.java</file>
+            <file>file:/home/isaac/Desktop/Trabajos/Estructura/proyectos2/Grafos/P3_TonelMovil/src/Windows/MainWindow.java</file>
+            <file>file:/home/isaac/Desktop/Trabajos/Estructura/proyectos2/Grafos/P3_TonelMovil/src/Classes/Pila.java</file>
+            <file>file:/home/isaac/Desktop/Trabajos/Estructura/proyectos2/Grafos/P3_TonelMovil/src/Classes/Relacion_Destinos.java</file>
+            <file>file:/home/isaac/Desktop/Trabajos/Estructura/proyectos2/Grafos/P3_TonelMovil/src/Classes/Nodo.java</file>
+            <file>file:/home/isaac/Desktop/Trabajos/Estructura/proyectos2/Grafos/P3_TonelMovil/src/Classes/Lugar.java</file>
+=======
+=======
+>>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
+            <file>file:/C:/Users/jordi/Documents/GitHub/P3_TonelMovil/src/Classes/Relacion_Destinos.java</file>
+            <file>file:/C:/Users/jordi/Documents/GitHub/P3_TonelMovil/src/Classes/Lugar.java</file>
+            <file>file:/C:/Users/jordi/Documents/GitHub/P3_TonelMovil/src/Classes/Lista_Relacion.java</file>
+            <file>file:/C:/Users/jordi/Documents/GitHub/P3_TonelMovil/src/Windows/MainWindow.java</file>
+<<<<<<< HEAD
+>>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
+=======
+>>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
+        </group>
+>>>>>>> b3e4125d1935ee46b090eef652af3ee3ebee7300
     </open-files>
 </project-private>
