@@ -6,7 +6,10 @@
 package Windows;
 
 import Classes.Lista_Relacion;
+import Classes.Arbol;
+import Classes.Pila;
 import Classes.Lugar;
+import Classes.Matrices;
 import Classes.Relacion_Destinos;
 import edu.uci.ics.jung.algorithms.layout.CircleLayout;
 import edu.uci.ics.jung.algorithms.layout.Layout;
@@ -26,18 +29,37 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
+    
+    public static Matrices matrices = new Matrices();
+    public static int ContadorNodos=0;
+    
     public MainWindow() {
         initComponents();
+        System.out.println(ContadorNodos);
         Lugar p = new Lugar("Tegucigalpa");
+        p.setID(ContadorNodos);
+        System.out.println(ContadorNodos);
         Lugar p1 = new Lugar("Juticalpa");
+        p1.setID(ContadorNodos);
         Lugar p2 = new Lugar("Yoro");
+        p2.setID(ContadorNodos);        
         Lugar p3 = new Lugar("La Ceiba");
+        p3.setID(ContadorNodos);        
         Lugar p4 = new Lugar("Tela");
+        p4.setID(ContadorNodos);
         Lugar p5 = new Lugar("Valle");
         Lugar p6 = new Lugar("Choluteca");
         Lugar p7 = new Lugar("Catacamas");
         Lugar p8 = new Lugar("Lempira");
+        p8.setID(ContadorNodos);
+        System.out.println(ContadorNodos);
         Lugar p9 = new Lugar("La Paz");
+        p9.setID(ContadorNodos);
+        System.out.println(ContadorNodos);
+        System.out.println(p.getID());
+        System.out.println(p1.getID());
+        System.out.println(p2.getID());
+        System.out.println(p9.getID());
         Relacion_Destinos d = new Relacion_Destinos(100, p, p1);
         relaciones.insert(d, size);
         size++;
@@ -62,6 +84,26 @@ public class MainWindow extends javax.swing.JFrame {
         Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8);
         relaciones.insert(d7, size);
         size++;
+        System.out.println(size);
+      
+        for (int i = 0; i < ContadorNodos; i++) {
+            for (int j = 0; j < ContadorNodos; j++) {
+                matrices.setMatrizAdyacencia(i, j, 0);
+            }
+        }
+        
+        for (int i = 0; i < size; i++) {
+            matrices.setMatrizAdyacencia(relaciones.get(i).getPunto1().getID(), relaciones.get(i).getPunto2().getID(), 1);
+            matrices.setMatrizAdyacencia(relaciones.get(i).getPunto2().getID(), relaciones.get(i).getPunto1().getID(), 1);
+            matrices.setMatrizCoeficiente(relaciones.get(i).getPunto1().getID(), relaciones.get(i).getPunto2().getID(), relaciones.get(i).getDistancia());
+            matrices.setMatrizCoeficiente(relaciones.get(i).getPunto2().getID(), relaciones.get(i).getPunto1().getID(), relaciones.get(i).getDistancia());
+            
+            
+        }
+        
+        matrices.print();
+        System.out.println("");
+        matrices.print2();
         
     }
 
@@ -81,7 +123,8 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        ViewMap = new javax.swing.JMenuItem();
+        DijkstraMenuItem = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -99,13 +142,21 @@ public class MainWindow extends javax.swing.JFrame {
 
         jMenu5.setText("View");
 
-        jMenuItem1.setText("Mapa..");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        ViewMap.setText("Mapa..");
+        ViewMap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                ViewMapActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem1);
+        jMenu5.add(ViewMap);
+
+        DijkstraMenuItem.setText("Dijkstra");
+        DijkstraMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DijkstraMenuItemMouseClicked(evt);
+            }
+        });
+        jMenu5.add(DijkstraMenuItem);
 
         jMenuBar2.add(jMenu5);
 
@@ -125,7 +176,7 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void ViewMapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewMapActionPerformed
         // TODO add your handling code here:
         for (int i = 0; i < size; i++) {
             grafo.addEdge(relaciones.get(i), relaciones.get(i).getPunto1(), relaciones.get(i).getPunto2(), EdgeType.UNDIRECTED);
@@ -143,7 +194,12 @@ public class MainWindow extends javax.swing.JFrame {
         frame.pack();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_ViewMapActionPerformed
+
+    private void DijkstraMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DijkstraMenuItemMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_DijkstraMenuItemMouseClicked
 
     /**
      * @param args the command line arguments
@@ -181,6 +237,8 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem DijkstraMenuItem;
+    private javax.swing.JMenuItem ViewMap;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -188,7 +246,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
     UndirectedSparseMultigraph grafo = new UndirectedSparseMultigraph<Lugar, Relacion_Destinos>();
     Lista_Relacion relaciones = new Lista_Relacion();
