@@ -1,0 +1,1 @@
+100,Tegucigalpa,Choluteca,200,Tegucigalpa,Yoro,500,Tegucigalpa,Catacamas,200,Tegucigalpa,Tela,
