@@ -5,6 +5,8 @@
  */
 package Classes;
 
+import Classes.Nodo;
+
 /**
  *
  * @author Memo

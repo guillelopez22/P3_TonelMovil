@@ -5,6 +5,8 @@
  */
 package Classes;
 
+import Classes.Lugar;
+
 /**
  *
  * @author Memo
