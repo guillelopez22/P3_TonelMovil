@@ -6,6 +6,8 @@
 package Windows;
 
 import Classes.Lista_Relacion;
+import Classes.Arbol;
+import Classes.Pila;
 import Classes.Lugar;
 import Classes.Relacion_Destinos;
 import Classes.lista_lugares;
@@ -39,6 +41,7 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
+<<<<<<< HEAD
         Scanner sc = null;
         File archivo = null;
         try {
@@ -129,6 +132,43 @@ public class MainWindow extends javax.swing.JFrame {
 //        Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8);
 //        relaciones.insert(d7, size);
 //        size++;
+=======
+        Lugar p = new Lugar("Tegucigalpa");
+        Lugar p1 = new Lugar("Juticalpa");
+        Lugar p2 = new Lugar("Yoro");
+        Lugar p3 = new Lugar("La Ceiba");
+        Lugar p4 = new Lugar("Tela");
+        Lugar p5 = new Lugar("Valle");
+        Lugar p6 = new Lugar("Choluteca");
+        Lugar p7 = new Lugar("Catacamas");
+        Lugar p8 = new Lugar("Lempira");
+        Lugar p9 = new Lugar("La Paz");
+        Relacion_Destinos d = new Relacion_Destinos(100, p, p1, false);
+        relaciones.insert(d, size);
+        size++;
+        Relacion_Destinos d1 = new Relacion_Destinos(500, p, p2, false);
+        relaciones.insert(d1, size);
+        size++;
+        Relacion_Destinos d2 = new Relacion_Destinos(110, p1, p2, false);
+        relaciones.insert(d2, size);
+        size++;
+        Relacion_Destinos d3 = new Relacion_Destinos(200, p2, p3, false);
+        relaciones.insert(d3, size);
+        size++;
+        Relacion_Destinos d4 = new Relacion_Destinos(1000, p4, p, false);
+        relaciones.insert(d4, size);
+        size++;
+        Relacion_Destinos d5 = new Relacion_Destinos(210, p4, p3, false);
+        relaciones.insert(d5, size);
+        size++;
+        Relacion_Destinos d6 = new Relacion_Destinos(50, p, p9, false);
+        relaciones.insert(d6, size);
+        size++;
+        Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8, false);
+        relaciones.insert(d7, size);
+        size++;
+        
+>>>>>>> 196835541f937e229338a20821678683a96c1957
     }
 
     /**
@@ -173,7 +213,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        ViewMap = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -411,13 +451,13 @@ public class MainWindow extends javax.swing.JFrame {
 
         jMenu5.setText("View");
 
-        jMenuItem1.setText("Mapa..");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        ViewMap.setText("Mapa..");
+        ViewMap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                ViewMapActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem1);
+        jMenu5.add(ViewMap);
 
         jMenuBar2.add(jMenu5);
 
@@ -437,7 +477,7 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void ViewMapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewMapActionPerformed
         // TODO add your handling code here:
         Scanner sc = null;
         File archivo;
@@ -474,7 +514,7 @@ public class MainWindow extends javax.swing.JFrame {
         frame.pack();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_ViewMapActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:        
@@ -697,6 +737,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JComboBox cb_lugar1;
     private javax.swing.JComboBox cb_lugar2;
     private javax.swing.JComboBox cb_lugar2_eliminar;
@@ -713,6 +754,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+=======
+    private javax.swing.JMenuItem ViewMap;
+>>>>>>> 196835541f937e229338a20821678683a96c1957
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -720,6 +764,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+<<<<<<< HEAD
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -735,6 +780,12 @@ public class MainWindow extends javax.swing.JFrame {
     UndirectedSparseMultigraph grafo = new UndirectedSparseMultigraph<Lugar, Relacion_Destinos>();
     public static Lista_Relacion relaciones = new Lista_Relacion();
     public static lista_lugares lugares = new lista_lugares();
+=======
+    // End of variables declaration//GEN-END:variables
+    UndirectedSparseMultigraph grafo = new UndirectedSparseMultigraph<Lugar, Relacion_Destinos>();
+    UndirectedSparseMultigraph grafo2 = new UndirectedSparseMultigraph<Relacion_Destinos, Lugar>();
+    Lista_Relacion relaciones = new Lista_Relacion();
+>>>>>>> 196835541f937e229338a20821678683a96c1957
     int size = 0;
     int size2 = 0;
 

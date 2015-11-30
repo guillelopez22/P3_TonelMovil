@@ -47,10 +47,10 @@ public class Lista_Relacion {
 
     public Relacion_Destinos get(int pos) {
         Nodo temp = head;
-        Relacion_Destinos valor = temp.getValue();
+        Relacion_Destinos valor = temp.getRelacionDestinos();
         for (int i = 0; i < pos; i++) {
             temp = temp.getNext();
-            valor = temp.getValue();
+            valor = temp.getRelacionDestinos();
 
         }
         return valor;
@@ -66,7 +66,7 @@ public class Lista_Relacion {
     }
 
     public Relacion_Destinos first() {
-        return head.getValue();
+        return head.getRelacionDestinos();
     }
 
     public void Print_Lista() {
@@ -77,10 +77,10 @@ public class Lista_Relacion {
                 System.out.print("[H]");
             }
             if (temp.getNext() != null) {
-                System.out.print("[" + temp.getValue() + "] - ");
+                System.out.print("[" + temp.getRelacionDestinos() + "] - ");
                 cont++;
             } else {
-                System.out.print("[" + temp.getValue() + "]");
+                System.out.print("[" + temp.getRelacionDestinos() + "]");
                 cont++;
             }
             temp = temp.next;
