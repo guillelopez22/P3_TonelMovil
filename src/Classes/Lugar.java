@@ -15,7 +15,18 @@ public class Lugar {
     public String nombre;
     boolean visitado;
     public int ID;
+    public LinkedList Adyacentes = new LinkedList();
 
+    public LinkedList getAdyacentes() {
+        return Adyacentes;
+    }
+
+    public void setAdyacentes(LinkedList Adyacentes) {
+        this.Adyacentes = Adyacentes;
+    }
+
+    
+    
     public int getID() {
         return ID;
     }

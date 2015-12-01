@@ -15,11 +15,7 @@ public class Relacion_Destinos {
 
     public Relacion_Destinos() {
     }
-<<<<<<< HEAD
-   
-=======
 
->>>>>>> 441059ac1c051959e9b980e40e487d9246784b0a
     public Relacion_Destinos(int distancia, Lugar punto1, Lugar punto2) {
         this.distancia = distancia;
         this.punto1 = punto1;
