@@ -57,6 +57,33 @@ public class AdvancedLinkedList extends LinkedList {
     return info;
   }
 
+    public Lugar getLugar(int n) {
+    if (n <= 0 ||
+        isEmpty() ||
+        first.getNext() == null) { 
+      return getLugar();
+    }
+    
+    Node prev;
+    {
+      prev = first;
+      Node current = first.getNext();
+      int i = 1;
+      while (current.getNext() != null && i != n) {
+        prev = current;
+        current = current.getNext();
+        i++;
+         // System.out.println(prev.getInfo()+"prev");
+         // System.out.println(current.getInfo()+"current");
+         // System.out.println(i+"i");
+      }
+    }
+
+    Object info = prev.getNext().getInfo();
+    //prev.setNext(prev.getNext().getNext());
+    return  (Lugar)info;
+  }
+  
   public String toString(int n) {
     String out = null;
     if (!isEmpty()) {

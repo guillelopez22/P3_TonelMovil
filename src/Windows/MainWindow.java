@@ -5,8 +5,10 @@
  */
 package Windows;
 
+import Classes.AdvancedLinkedList;
 import Classes.Lista_Relacion;
 import Classes.Arbol;
+import Classes.Dijkstra;
 import Classes.Pila;
 import Classes.Lugar;
 import Classes.Matrices;
@@ -45,10 +47,12 @@ public class MainWindow extends javax.swing.JFrame {
     public static Matrices matrices = new Matrices();
     public static int ContadorNodos=0;
     public static Arbol arbol;
+    public static AdvancedLinkedList places = new AdvancedLinkedList();
     
     public MainWindow() {
         initComponents();
 /*
+
         System.out.println(ContadorNodos);
 
         Scanner sc = null;
@@ -169,50 +173,101 @@ public class MainWindow extends javax.swing.JFrame {
         p9.setID(ContadorNodos);
         p9.getAdyacentes().insert(p9.getID());
         System.out.println(ContadorNodos);
-        System.out.println(p.getID());
-        System.out.println(p1.getID());
-        System.out.println(p2.getID());
-        System.out.println(p9.getID());
+        //System.out.println(p.getID());
+        //System.out.println(p1.getID());
+        //System.out.println(p2.getID());
+        //System.out.println(p9.getID());
         Relacion_Destinos d = new Relacion_Destinos(100, p, p1);
         p.getAdyacentes().insert(p1.getID());
         p1.getAdyacentes().insert(p.getID());
+        p.getLugaresAdyacentes().insert(p1);
+        p1.getLugaresAdyacentes().insert(p);
+        p.getCoeficientes().insert(d.getDistancia());
+        p1.getCoeficientes().insert(d.getDistancia());
         relaciones.insert(d, size);
         size++;
         Relacion_Destinos d1 = new Relacion_Destinos(500, p, p2);
         p.getAdyacentes().insert(p2.getID());
         p2.getAdyacentes().insert(p.getID());
+        p.getLugaresAdyacentes().insert(p2);
+        p2.getLugaresAdyacentes().insert(p);
+        p.getCoeficientes().insert(d1.getDistancia());
+        p2.getCoeficientes().insert(d1.getDistancia());
         relaciones.insert(d1, size);
         size++;
         Relacion_Destinos d2 = new Relacion_Destinos(110, p1, p2);
         p1.getAdyacentes().insert(p2.getID());
         p2.getAdyacentes().insert(p1.getID());
+        p1.getLugaresAdyacentes().insert(p2);
+        p2.getLugaresAdyacentes().insert(p1);
+        p1.getCoeficientes().insert(d2.getDistancia());
+        p2.getCoeficientes().insert(d2.getDistancia());
         relaciones.insert(d2, size);
         size++;
         Relacion_Destinos d3 = new Relacion_Destinos(200, p2, p3);
         p2.getAdyacentes().insert(p3.getID());
         p3.getAdyacentes().insert(p2.getID());
+        p2.getLugaresAdyacentes().insert(p3);
+        p3.getLugaresAdyacentes().insert(p2);
+        p2.getCoeficientes().insert(d3.getDistancia());
+        p3.getCoeficientes().insert(d3.getDistancia());
         relaciones.insert(d3, size);
         size++;
         Relacion_Destinos d4 = new Relacion_Destinos(1000, p4, p);
         p4.getAdyacentes().insert(p.getID());
         p.getAdyacentes().insert(p4.getID());
+        p4.getLugaresAdyacentes().insert(p);
+        p.getLugaresAdyacentes().insert(p4);
+        p4.getCoeficientes().insert(d4.getDistancia());
+        p.getCoeficientes().insert(d4.getDistancia());
         relaciones.insert(d4, size);
         size++;
         Relacion_Destinos d5 = new Relacion_Destinos(210, p4, p3);
         p4.getAdyacentes().insert(p3.getID());
         p3.getAdyacentes().insert(p4.getID());
+        p4.getLugaresAdyacentes().insert(p3);
+        p3.getLugaresAdyacentes().insert(p4);
+        p4.getCoeficientes().insert(d5.getDistancia());
+        p3.getCoeficientes().insert(d5.getDistancia());
         relaciones.insert(d5, size);
         size++;
         Relacion_Destinos d6 = new Relacion_Destinos(50, p, p9);
         p.getAdyacentes().insert(p9.getID());
         p9.getAdyacentes().insert(p.getID());
+        p.getLugaresAdyacentes().insert(p9);
+        p9.getLugaresAdyacentes().insert(p);
+        p.getCoeficientes().insert(d6.getDistancia());
+        p9.getCoeficientes().insert(d6.getDistancia());
         relaciones.insert(d6, size);
         size++;
         Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8);
         p9.getAdyacentes().insert(p8.getID());
-        p9.getAdyacentes().insert(p8.getID());
+        p8.getAdyacentes().insert(p9.getID());
+        p9.getLugaresAdyacentes().insert(p8);
+        p8.getLugaresAdyacentes().insert(p9);
+        p9.getCoeficientes().insert(d7.getDistancia());
+        p8.getCoeficientes().insert(d7.getDistancia());
         relaciones.insert(d7, size);
         size++;
+        places.insert(p);
+        places.insert(p1);
+        places.insert(p2);
+        places.insert(p3);
+        places.insert(p4);
+        places.insert(p8);
+        places.insert(p9);
+        
+        lugares.insert(p, 0);
+        lugares.insert(p1, 1);
+        lugares.insert(p2, 2);
+        lugares.insert(p3, 3);
+        lugares.insert(p4, 4);
+        lugares.insert(p8, 5);
+        lugares.insert(p9, 6);
+        
+        System.out.println("ioajsesa");
+        lugares.Print_Lista();
+        
         System.out.println(size);
         arbol = new Arbol(p.getID());
         arbol.addNodo(new Nodo(p1.getID()));
@@ -243,12 +298,29 @@ public class MainWindow extends javax.swing.JFrame {
             relaciones.get(0).getPunto1().setAdyacentes(relaciones.get(0).getPunto1().getAdyacentes().Voltear(relaciones.get(0).getPunto1().getAdyacentes()));
             System.out.println("Lista dada vuelta");
             relaciones.get(0).getPunto1().getAdyacentes().print();
-            // }
+            System.out.println("Lista Nodos");
+            relaciones.get(0).getPunto1().getLugaresAdyacentes().print();
+            relaciones.get(0).getPunto1().setLugaresAdyacentes(relaciones.get(0).getPunto1().getLugaresAdyacentes().Voltear(relaciones.get(0).getPunto1().getLugaresAdyacentes()));
+            System.out.println("Lista Nodos Dada vuelta");
+            relaciones.get(0).getPunto1().getLugaresAdyacentes().print();
+            System.out.println("Lista Coeficientes");
+            relaciones.get(0).getPunto1().getCoeficientes().print();
+            relaciones.get(0).getPunto1().setCoeficientes(relaciones.get(0).getPunto1().getCoeficientes().Voltear(relaciones.get(0).getPunto1().getCoeficientes()));
+            System.out.println("Lista Coeficientes dada vuelta");
+            relaciones.get(0).getPunto1().getCoeficientes().print();
+// }
         
         
         matrices.print();
         System.out.println("");
         matrices.print2();
+        
+        System.out.println("");
+        
+        Dijkstra dijkstra = new Dijkstra();
+        dijkstra.Dijkstra(0, 6);
+       
+       
         
  }
 

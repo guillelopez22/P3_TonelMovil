@@ -27,6 +27,22 @@ public class LinkedList {
     size++;
   }
 
+  public Object get(){
+      Object out = null;
+      if(!isEmpty()){
+          out = first.getInfo();
+      }
+      return out;
+  }
+  
+  public Lugar getLugar(){
+      Lugar out = null;
+      if(!isEmpty()){
+          out = (Lugar)first.getInfo();
+      }
+      return out;
+  }
+  
   public Object extract() {
     Object out = null;
 

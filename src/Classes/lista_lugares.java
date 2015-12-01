@@ -37,6 +37,14 @@ Nodo_lista_lugares head;
         newNodo_lista_lugares.setNext(n);
     }
 
+    public void insert(Lugar value){
+          Nodo_lista_lugares temp = new Nodo_lista_lugares(value);
+
+    temp.setNext(head);
+    head = temp;
+    size++;
+    }
+    
     public void setHead(Nodo_lista_lugares head) {
         this.head = head;
     }
