@@ -10,6 +10,7 @@ import Classes.Lugar;
 import Classes.Matrices;
 import Classes.Relacion_Destinos;
 import Classes.lista_lugares;
+import static Windows.Dijskstra.cb_origen;
 import static Windows.EliminarNodo.cb_eliminar;
 import edu.uci.ics.jung.algorithms.layout.CircleLayout;
 import edu.uci.ics.jung.algorithms.layout.Layout;
@@ -312,6 +313,11 @@ public class MainWindow extends javax.swing.JFrame {
                 DijkstraMenuItemMouseClicked(evt);
             }
         });
+        DijkstraMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DijkstraMenuItemActionPerformed(evt);
+            }
+        });
         jMenu5.add(DijkstraMenuItem);
 
         jMenuBar2.add(jMenu5);
@@ -510,6 +516,18 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void DijkstraMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DijkstraMenuItemActionPerformed
+        // TODO add your handling code here:
+        Dijskstra d = new Dijskstra();
+        d.setVisible(true);
+        d.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (int i = 0; i < size2; i++) {
+            model.addElement(lugares.get(i));
+        }
+        cb_origen.setModel(model);
+    }//GEN-LAST:event_DijkstraMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
