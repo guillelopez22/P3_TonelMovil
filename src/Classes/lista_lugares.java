@@ -58,12 +58,31 @@ Nodo_lista_lugares head;
     }
 
     public void delete(int pos) {
-        Nodo_lista_lugares temp = head;
-        for (int i = 1; i < pos - 1; i++) {
-            temp = temp.getNext();
+        System.out.println(pos);
+        if (pos == 0 ) {
+            Nodo_lista_lugares temp = head;
+            head=temp.getNext();
+            System.out.println(head.getValue());
+            System.out.println(temp.getValue());
+            Lugar data = temp.getValue();
+            
+            temp.setValue(null);
+            temp.setNext(null);
+            
+        }else{
+            
+            Nodo_lista_lugares temp = head;
+            for (int i = 1; i < pos-1; i++) {
+                temp = temp.getNext();
+            }
+            System.out.println(temp.getValue());
+            Nodo_lista_lugares temp2 = temp.getNext();
+            temp.setNext(temp2.getNext());
+            Lugar data2= temp2.getValue();
+            temp2.setValue(null);
+            temp2.setNext(null);
+            System.out.println(data2);
         }
-        Nodo_lista_lugares temp2 = temp.getNext();
-        temp.setNext(temp2.getNext());
     }
 
     public Lugar first() {

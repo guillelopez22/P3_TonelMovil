@@ -10,15 +10,15 @@ package Classes;
  * @author Memo
  */
 public class Lista_Relacion {
+
     Nodo head;
-    private int size = 0;
 
     public Lista_Relacion() {
         head = new Nodo();
     }
 
-    public void insert(Relacion_Destinos value, int pos) {
-        Nodo newNodo = new Nodo(value);
+    public void insert(Relacion_Destinos relacion, int pos) {
+        Nodo newNodo = new Nodo(relacion);
         Nodo newHead = head;
         int cont = 0;
         if (pos == 0) {
@@ -47,26 +47,51 @@ public class Lista_Relacion {
 
     public Relacion_Destinos get(int pos) {
         Nodo temp = head;
-        Relacion_Destinos valor = temp.getRelacionDestinos();
+        Relacion_Destinos valor = temp.getValue();
         for (int i = 0; i < pos; i++) {
             temp = temp.getNext();
-            valor = temp.getRelacionDestinos();
+            valor = temp.getValue();
 
         }
         return valor;
     }
 
+    public Relacion_Destinos removeFirst() {
+        Relacion_Destinos tmp = first();
+        head = head.next;
+        return tmp;
+    }
+
     public void delete(int pos) {
-        Nodo temp = head;
-        for (int i = 1; i < pos - 1; i++) {
-            temp = temp.getNext();
+        System.out.println(pos);
+        if (pos == 0 ) {
+            Nodo temp = head;
+            head=temp.getNext();
+            System.out.println(head.getValue());
+            System.out.println(temp.getValue());
+            Relacion_Destinos data = temp.getValue();
+            
+            temp.setValue(null);
+            temp.setNext(null);
+            
+        }else{
+            
+            Nodo temp = head;
+            for (int i = 1; i < pos-1; i++) {
+                temp = temp.getNext();
+            }
+            System.out.println(temp.getValue());
+            Nodo temp2 = temp.getNext();
+            temp.setNext(temp2.getNext());
+            Relacion_Destinos data2= temp2.getValue();
+            temp2.setValue(null);
+            temp2.setNext(null);
+            System.out.println(data2);
         }
-        Nodo temp2 = temp.getNext();
-        temp.setNext(temp2.getNext());
     }
 
     public Relacion_Destinos first() {
-        return head.getRelacionDestinos();
+        return head.getValue();
     }
 
     public void Print_Lista() {
@@ -77,10 +102,10 @@ public class Lista_Relacion {
                 System.out.print("[H]");
             }
             if (temp.getNext() != null) {
-                System.out.print("[" + temp.getRelacionDestinos() + "] - ");
+                System.out.print("[" + temp.getValue() + "] - ");
                 cont++;
             } else {
-                System.out.print("[" + temp.getRelacionDestinos() + "]");
+                System.out.print("[" + temp.getValue() + "]");
                 cont++;
             }
             temp = temp.next;
@@ -88,10 +113,11 @@ public class Lista_Relacion {
         System.out.println("");
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-    public int getSize(){
-        return size;
+    public int getSize() {
+        int cont = 0;
+        while (head.getNext() != null) {
+            cont++;
+        }
+        return cont;
     }
 }
