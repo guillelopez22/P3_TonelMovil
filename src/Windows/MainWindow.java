@@ -5,11 +5,14 @@
  */
 package Windows;
 
+import Classes.AdvancedLinkedList;
 import Classes.Lista_Relacion;
 import Classes.Arbol;
+import Classes.Dijkstra;
 import Classes.Pila;
 import Classes.Lugar;
 import Classes.Matrices;
+import Classes.Nodo;
 import Classes.Relacion_Destinos;
 import Classes.lista_lugares;
 import edu.uci.ics.jung.algorithms.layout.CircleLayout;
@@ -43,13 +46,15 @@ public class MainWindow extends javax.swing.JFrame {
     
     public static Matrices matrices = new Matrices();
     public static int ContadorNodos=0;
+    public static Arbol arbol;
+    public static AdvancedLinkedList places = new AdvancedLinkedList();
     
     public MainWindow() {
         initComponents();
-<<<<<<< HEAD
+/*
+
         System.out.println(ContadorNodos);
-=======
-<<<<<<< HEAD
+
         Scanner sc = null;
         File archivo = null;
         try {
@@ -68,23 +73,23 @@ public class MainWindow extends javax.swing.JFrame {
         } finally {
             sc.close();
         }
-        relaciones.Print_Lista();
-        Scanner sc1 = null;
-        File archivo2 = null;
-        try {
-            archivo2 = new File("./lugares.txt");
-            sc = new Scanner(archivo2);
-            sc.useDelimiter(",");
-            while (sc.hasNext()) {
-                Lugar lugar1 = new Lugar(sc.next());
-                lugares.insert(lugar1, size2);
-                size2++;
-            }
-        } catch (Exception e) {
-        } finally {
-            sc.close();
-        }
-        lugares.Print_Lista();
+        relaciones.Print_Lista();*/
+        //Scanner sc1 = null;
+       // File archivo2 = null;
+       // try {
+        //    archivo2 = new File("./lugares.txt");
+          //  sc = new Scanner(archivo2);
+           // sc.useDelimiter(",");
+           // while (sc.hasNext()) {
+             //   Lugar lugar1 = new Lugar(sc.next());
+              //  lugares.insert(lugar1, size2);
+               // size2++;
+           // }
+        //} catch (Exception e) {
+        //} finally {
+          //  sc.close();
+        //}
+        //lugares.Print_Lista();
 //        Lugar p = new Lugar("Tegucigalpa");
 //        Lugar p1 = new Lugar("Juticalpa");
 //        Lugar p2 = new Lugar("Yoro");
@@ -140,58 +145,138 @@ public class MainWindow extends javax.swing.JFrame {
 //        Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8);
 //        relaciones.insert(d7, size);
 //        size++;
-=======
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
+
         Lugar p = new Lugar("Tegucigalpa");
         p.setID(ContadorNodos);
+        p.getAdyacentes().insert(p.getID());
         System.out.println(ContadorNodos);
         Lugar p1 = new Lugar("Juticalpa");
         p1.setID(ContadorNodos);
+        p1.getAdyacentes().insert(p1.getID());
         Lugar p2 = new Lugar("Yoro");
         p2.setID(ContadorNodos);        
+        p2.getAdyacentes().insert(p2.getID());
         Lugar p3 = new Lugar("La Ceiba");
-        p3.setID(ContadorNodos);        
+        p3.setID(ContadorNodos);
+        p3.getAdyacentes().insert(p3.getID());
         Lugar p4 = new Lugar("Tela");
         p4.setID(ContadorNodos);
+        p4.getAdyacentes().insert(p4.getID());
         Lugar p5 = new Lugar("Valle");
         Lugar p6 = new Lugar("Choluteca");
         Lugar p7 = new Lugar("Catacamas");
         Lugar p8 = new Lugar("Lempira");
         p8.setID(ContadorNodos);
+        p8.getAdyacentes().insert(p8.getID());
         System.out.println(ContadorNodos);
         Lugar p9 = new Lugar("La Paz");
         p9.setID(ContadorNodos);
+        p9.getAdyacentes().insert(p9.getID());
         System.out.println(ContadorNodos);
-        System.out.println(p.getID());
-        System.out.println(p1.getID());
-        System.out.println(p2.getID());
-        System.out.println(p9.getID());
+        //System.out.println(p.getID());
+        //System.out.println(p1.getID());
+        //System.out.println(p2.getID());
+        //System.out.println(p9.getID());
         Relacion_Destinos d = new Relacion_Destinos(100, p, p1);
+        p.getAdyacentes().insert(p1.getID());
+        p1.getAdyacentes().insert(p.getID());
+        p.getLugaresAdyacentes().insert(p1);
+        p1.getLugaresAdyacentes().insert(p);
+        p.getCoeficientes().insert(d.getDistancia());
+        p1.getCoeficientes().insert(d.getDistancia());
         relaciones.insert(d, size);
         size++;
         Relacion_Destinos d1 = new Relacion_Destinos(500, p, p2);
+        p.getAdyacentes().insert(p2.getID());
+        p2.getAdyacentes().insert(p.getID());
+        p.getLugaresAdyacentes().insert(p2);
+        p2.getLugaresAdyacentes().insert(p);
+        p.getCoeficientes().insert(d1.getDistancia());
+        p2.getCoeficientes().insert(d1.getDistancia());
         relaciones.insert(d1, size);
         size++;
         Relacion_Destinos d2 = new Relacion_Destinos(110, p1, p2);
+        p1.getAdyacentes().insert(p2.getID());
+        p2.getAdyacentes().insert(p1.getID());
+        p1.getLugaresAdyacentes().insert(p2);
+        p2.getLugaresAdyacentes().insert(p1);
+        p1.getCoeficientes().insert(d2.getDistancia());
+        p2.getCoeficientes().insert(d2.getDistancia());
         relaciones.insert(d2, size);
         size++;
         Relacion_Destinos d3 = new Relacion_Destinos(200, p2, p3);
+        p2.getAdyacentes().insert(p3.getID());
+        p3.getAdyacentes().insert(p2.getID());
+        p2.getLugaresAdyacentes().insert(p3);
+        p3.getLugaresAdyacentes().insert(p2);
+        p2.getCoeficientes().insert(d3.getDistancia());
+        p3.getCoeficientes().insert(d3.getDistancia());
         relaciones.insert(d3, size);
         size++;
         Relacion_Destinos d4 = new Relacion_Destinos(1000, p4, p);
+        p4.getAdyacentes().insert(p.getID());
+        p.getAdyacentes().insert(p4.getID());
+        p4.getLugaresAdyacentes().insert(p);
+        p.getLugaresAdyacentes().insert(p4);
+        p4.getCoeficientes().insert(d4.getDistancia());
+        p.getCoeficientes().insert(d4.getDistancia());
         relaciones.insert(d4, size);
         size++;
         Relacion_Destinos d5 = new Relacion_Destinos(210, p4, p3);
+        p4.getAdyacentes().insert(p3.getID());
+        p3.getAdyacentes().insert(p4.getID());
+        p4.getLugaresAdyacentes().insert(p3);
+        p3.getLugaresAdyacentes().insert(p4);
+        p4.getCoeficientes().insert(d5.getDistancia());
+        p3.getCoeficientes().insert(d5.getDistancia());
         relaciones.insert(d5, size);
         size++;
         Relacion_Destinos d6 = new Relacion_Destinos(50, p, p9);
+        p.getAdyacentes().insert(p9.getID());
+        p9.getAdyacentes().insert(p.getID());
+        p.getLugaresAdyacentes().insert(p9);
+        p9.getLugaresAdyacentes().insert(p);
+        p.getCoeficientes().insert(d6.getDistancia());
+        p9.getCoeficientes().insert(d6.getDistancia());
         relaciones.insert(d6, size);
         size++;
         Relacion_Destinos d7 = new Relacion_Destinos(300, p9, p8);
+        p9.getAdyacentes().insert(p8.getID());
+        p8.getAdyacentes().insert(p9.getID());
+        p9.getLugaresAdyacentes().insert(p8);
+        p8.getLugaresAdyacentes().insert(p9);
+        p9.getCoeficientes().insert(d7.getDistancia());
+        p8.getCoeficientes().insert(d7.getDistancia());
         relaciones.insert(d7, size);
         size++;
+        places.insert(p);
+        places.insert(p1);
+        places.insert(p2);
+        places.insert(p3);
+        places.insert(p4);
+        places.insert(p8);
+        places.insert(p9);
+        
+        lugares.insert(p, 0);
+        lugares.insert(p1, 1);
+        lugares.insert(p2, 2);
+        lugares.insert(p3, 3);
+        lugares.insert(p4, 4);
+        lugares.insert(p8, 5);
+        lugares.insert(p9, 6);
+        
+        System.out.println("ioajsesa");
+        lugares.Print_Lista();
+        
         System.out.println(size);
-      
+        arbol = new Arbol(p.getID());
+        arbol.addNodo(new Nodo(p1.getID()));
+        arbol.addNodo(new Nodo(p2.getID()));
+        arbol.addNodo(new Nodo(p3.getID()));
+        arbol.addNodo(new Nodo(p4.getID()));
+        arbol.addNodo(new Nodo(p8.getID()));
+        arbol.addNodo(new Nodo(p9.getID()));
+        
         for (int i = 0; i < ContadorNodos; i++) {
             for (int j = 0; j < ContadorNodos; j++) {
                 matrices.setMatrizAdyacencia(i, j, 0);
@@ -207,12 +292,37 @@ public class MainWindow extends javax.swing.JFrame {
             
         }
         
+        //for (int i = 0; i < 5; i++) {
+            System.out.println("lista");
+            relaciones.get(0).getPunto1().getAdyacentes().print();
+            relaciones.get(0).getPunto1().setAdyacentes(relaciones.get(0).getPunto1().getAdyacentes().Voltear(relaciones.get(0).getPunto1().getAdyacentes()));
+            System.out.println("Lista dada vuelta");
+            relaciones.get(0).getPunto1().getAdyacentes().print();
+            System.out.println("Lista Nodos");
+            relaciones.get(0).getPunto1().getLugaresAdyacentes().print();
+            relaciones.get(0).getPunto1().setLugaresAdyacentes(relaciones.get(0).getPunto1().getLugaresAdyacentes().Voltear(relaciones.get(0).getPunto1().getLugaresAdyacentes()));
+            System.out.println("Lista Nodos Dada vuelta");
+            relaciones.get(0).getPunto1().getLugaresAdyacentes().print();
+            System.out.println("Lista Coeficientes");
+            relaciones.get(0).getPunto1().getCoeficientes().print();
+            relaciones.get(0).getPunto1().setCoeficientes(relaciones.get(0).getPunto1().getCoeficientes().Voltear(relaciones.get(0).getPunto1().getCoeficientes()));
+            System.out.println("Lista Coeficientes dada vuelta");
+            relaciones.get(0).getPunto1().getCoeficientes().print();
+// }
+        
+        
         matrices.print();
         System.out.println("");
         matrices.print2();
         
->>>>>>> 196835541f937e229338a20821678683a96c1957
-    }
+        System.out.println("");
+        
+        Dijkstra dijkstra = new Dijkstra();
+        dijkstra.Dijkstra(0, 6);
+       
+       
+        
+ }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -531,7 +641,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void ViewMapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewMapActionPerformed
         // TODO add your handling code here:
-        Scanner sc = null;
+        /*Scanner sc = null;
         File archivo;
         try {
             archivo = new File("./mapa.txt");
@@ -549,7 +659,7 @@ public class MainWindow extends javax.swing.JFrame {
         } finally {
             sc.close();
         }
-
+*/
         for (int i = 0; i < size; i++) {
             grafo.addEdge(relaciones.get(i), relaciones.get(i).getPunto1(), relaciones.get(i).getPunto2(), EdgeType.UNDIRECTED);
         }
@@ -568,12 +678,12 @@ public class MainWindow extends javax.swing.JFrame {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_ViewMapActionPerformed
 
-<<<<<<< HEAD
+
     private void DijkstraMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DijkstraMenuItemMouseClicked
         // TODO add your handling code here:
         
     }//GEN-LAST:event_DijkstraMenuItemMouseClicked
-=======
+
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:        
         Lugar NuevoLugar = new Lugar(cb_lugar1.getSelectedItem().toString());
@@ -758,7 +868,6 @@ public class MainWindow extends javax.swing.JFrame {
         jd_modificar_relacion.pack();
         jd_modificar_relacion.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
 
     /**
      * @param args the command line arguments
@@ -786,6 +895,7 @@ public class MainWindow extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -795,11 +905,8 @@ public class MainWindow extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
+    // Variables declaration - do not modify                     
     private javax.swing.JMenuItem DijkstraMenuItem;
-=======
-<<<<<<< HEAD
     private javax.swing.JComboBox cb_lugar1;
     private javax.swing.JComboBox cb_lugar2;
     private javax.swing.JComboBox cb_lugar2_eliminar;
@@ -816,10 +923,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-=======
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
     private javax.swing.JMenuItem ViewMap;
->>>>>>> 196835541f937e229338a20821678683a96c1957
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -827,7 +931,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-<<<<<<< HEAD
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -839,15 +942,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JDialog jd_modificar_relacion;
     private javax.swing.JTextField txt_distancia;
     private javax.swing.JTextField txt_nom_lugar;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
     UndirectedSparseMultigraph grafo = new UndirectedSparseMultigraph<Lugar, Relacion_Destinos>();
     public static Lista_Relacion relaciones = new Lista_Relacion();
     public static lista_lugares lugares = new lista_lugares();
-=======
-    // End of variables declaration//GEN-END:variables
-    UndirectedSparseMultigraph grafo = new UndirectedSparseMultigraph<Lugar, Relacion_Destinos>();
-    Lista_Relacion relaciones = new Lista_Relacion();
->>>>>>> 196835541f937e229338a20821678683a96c1957
+    
+
     int size = 0;
     int size2 = 0;
 

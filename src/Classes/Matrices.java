@@ -15,8 +15,8 @@ public class Matrices {
 
     }
 
-    private int MatrizCoeficiente[][] = new int[51][51];
-    private int MatrizAdyacencia[][] = new int[51][51];
+    private int MatrizCoeficiente[][] = new int[100][100];
+    private int MatrizAdyacencia[][] = new int[100][100];
 
     public int getMatrizCoeficiente(int i, int j) {
         return MatrizCoeficiente[i][j];

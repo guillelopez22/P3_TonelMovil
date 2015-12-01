@@ -15,7 +15,43 @@ public class Lugar {
     public String nombre;
     boolean visitado;
     public int ID;
+    public LinkedList Adyacentes = new LinkedList();
+    public LinkedList LugaresAdyacentes = new LinkedList();
+    public LinkedList Coeficientes = new LinkedList();
+    public LinkedList ListaAux = new LinkedList();
+    
+    
+    
+    public LinkedList getCoeficientes() {
+        return Coeficientes;
+    }
 
+    public void setCoeficientes(LinkedList Coeficientes) {
+        this.Coeficientes = Coeficientes;
+    }
+    
+    
+
+    public LinkedList getLugaresAdyacentes() {
+        return LugaresAdyacentes;
+    }
+
+    public void setLugaresAdyacentes(LinkedList LugaresAdyacentes) {
+        this.LugaresAdyacentes = LugaresAdyacentes;
+    }
+    
+    
+
+    public LinkedList getAdyacentes() {
+        return Adyacentes;
+    }
+
+    public void setAdyacentes(LinkedList Adyacentes) {
+        this.Adyacentes = Adyacentes;
+    }
+
+    
+    
     public int getID() {
         return ID;
     }

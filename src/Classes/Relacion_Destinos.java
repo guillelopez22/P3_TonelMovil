@@ -5,6 +5,8 @@
  */
 package Classes;
 
+import Classes.Lugar;
+
 /**
  *
  * @author Memo
@@ -16,22 +18,12 @@ public class Relacion_Destinos {
     public Relacion_Destinos() {
     }
 
-<<<<<<< HEAD
     public Relacion_Destinos(int distancia, Lugar punto1, Lugar punto2) {
-=======
-<<<<<<< HEAD
-
-
-    
-    public Relacion_Destinos(int distancia, Lugar punto1, Lugar punto2) {
-=======
-    public Relacion_Destinos(int distancia, Lugar punto1, Lugar punto2, boolean visitado) {
->>>>>>> 196835541f937e229338a20821678683a96c1957
->>>>>>> 082e4394896143175c065bbd9bb14a5ced9c9b11
         this.distancia = distancia;
         this.punto1 = punto1;
         this.punto2 = punto2;
     }
+    
 
     public int getDistancia() {
         return distancia;
