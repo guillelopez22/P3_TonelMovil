@@ -5,8 +5,8 @@
  */
 package Classes;
 
-import Windows.Principal;
-import static Windows.Principal.ContadorNodos;
+import Windows.MainWindow;
+import static Windows.MainWindow.ContadorNodos;
 /**
  *
  * @author Memo
